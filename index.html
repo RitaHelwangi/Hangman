@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="Hangman" content="A hangman game">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/game.css">
+    </head>
+    <body>
+        <div class="start-page">
+            <!-- Player info -->
+            <h1 class="title"> Hangman </h1>
+            <div class="player-info">
+                <label for="player-name"> Ange ditt namn: </label>
+                <input type="text" id="player-name" placeholder="Ditt namn">
+            </div>
+            <!-- Choose your Hangman -->
+        <h2> Välj din Hangman </h2>
+        <div class="option" id="head">
+            <img src="img/alien-head.png" alt="alien-head" class="clickable-image" data-part="alien-head">  
+            <img src="img/bear.png" alt="bear-head" class="clickable-image" data-part="bear-head"> 
+            <img src="img/chicken.png" alt="chicken-head" class="clickable-image" data-part="chicken-head"> 
+            <img src="img/dead.png" alt="dead-head" class="clickable-image" data-part="dead-head"> 
+            <img src="img/exploding.png" alt="exploding-head" class="clickable-image" data-part="exploding-head"> 
+            <img src="img/ninja.png" alt="ninja-head" class="clickable-image" data-part="ninja-head"> 
+            <img src="img/robot-head.png" alt="robot-head" class="clickable-image" data-part="robot-head"> 
+            <img src="img/skull.png" alt="skull-head" class="clickable-image" data-part="skull-head"> 
+            <img src="img/skull_crown.png" alt="skull_crown-head" class="clickable-image" data-part="skull_crown-head"> 
+            <img src="img/zombie.png" alt="zombie-head" class="clickable-image" data-part="zombie-head"> 
+        </div>
+        <!-- Your Hangman-->
+        <div class="hangman-container">
+            <h3> Här är din Hangman </h3>
+            <div id="hangman-character">
+            <!-- The selected character will appear here -->   
+        </div>
+        <!-- Start game button -->
+        </div>
+        <button id="start-game"> Starta spelet </button>
+        </div>
+
+        <script src="js/game.js" async defer></script>
+        <script src="js/app.js" async defer></script>
+        <script src="js/utils.js" async defer></script>
+        <script src="js/gameover.js" async defer></script>
+        <script src="js/score.js" async defer></script>
+    </body>
+</html>
