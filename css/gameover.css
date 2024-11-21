@@ -12,7 +12,9 @@ li {
 }
 button{
 	margin-top: 1em;
-	padding: 0.5em 1.2em
+	padding: 0.5em 1.2em;
+	box-shadow: 0.3em 0.3em 0.3em rgb(116, 115, 115);
+	cursor: pointer;
 }
 .hidden {
 	display: none;
@@ -25,7 +27,9 @@ button{
 	flex-direction: column;
 	font-size: 2em;
 	border: 2px solid black;
-	background-color: rgb(198, 8, 8);
+	background-color: rgb(118, 7, 7);
+	color: rgb(207, 199, 199);
+	box-shadow: 0.3em 0.3em 0.3em rgb(116, 115, 115);
 	
 }
 h1{
@@ -43,6 +47,7 @@ p{
 	background-color: lightgray;
 	margin-top: 0.3em;
 	padding: 0.5em;
+	box-shadow: 0.3em 0.3em 0.3em rgb(116, 115, 115);
 }
 .winner{
 	display: flex;
@@ -52,4 +57,5 @@ p{
 	font-size: 2em;
 	border: 2px solid black;
 	background-color: blueviolet;
+	box-shadow: 0.3em 0.3em 0.3em rgb(116, 115, 115);
 }
