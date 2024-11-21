@@ -32,7 +32,7 @@
 
    
 
-
+    //Lägg till en knapp för att sortera resultaten
     function sorteraResultat() 
     {
         // Sortera listan baserat på poäng
