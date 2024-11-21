@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Hangman</title>
+	<link rel="stylesheet" href="css/gameover.css">
+	<script type="module" src="js/gameover.js"></script>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li>Spela Hangman</li>
+			<li>Dina poäng</li>
+
+		</ul>
+	</nav>
+
+	<button class="show-winner-btn">win</button>
+	<button class="show-loser-btn">lose</button>
+
+	<section id="lose" class="hidden">
+		<div class="game-over">
+			<h1>Game over...</h1>
+			<p><strong>Försök igen!</strong></p>
+		</div>
+		<div class="game-history">
+			<p>Ordet är: </p>
+			<p>Antal gissningar: </p>
+			<button>Dina poäng</button>
+			<button>Starta nytt spel</button>
+		</div>
+	</section>
+
+	<section id="win" class="hidden">
+		<div class="winner">
+			<h1>Grattis!</h1>
+		</div>
+		<div class="game-history">
+			<p>Ordet är: </p>
+			<p>Antal gissningar: </p>
+			<button>Dina poäng</button>
+			<button>Starta nytt spel</button>
+		</div>
+	</section>
+	<div>
+		<h2><strong>Poängvy</strong></h2>
+		<p>Namn: </p>
+		<p>Antal felaktiga gissningar: </p>
+		<p>Ordets längd: </p>
+		<p>Datum/tid för omgången</p>
+		<p>Vann/förlorade</p>
+
+		<p id="randomWordDisplay"></p>
+
+	</div>
+</body>
+</html>
