@@ -45,3 +45,23 @@ body {
     height: 150px;
     margin-top: 20px;
 }
+
+/* Finish button */
+#finish {
+    margin-top: 20px;
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
+#finish:hover {
+    background-color: darkgreen;
+}
+
+/* Display for game message */
+#game-message {
+    margin-top: 20px;    
+}

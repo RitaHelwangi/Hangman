@@ -1,7 +1,5 @@
-// Object to store the selected Avatar
-let selectedAvatar = {
-    head: '', // Property to store the selected head avatar
-}
+// Object to store the selected Avatar 
+let selectedAvatar = { head: '' }
 
 // Create "EventListener" to all clickable Avatar images
 const clickableImages = document.querySelectorAll('.clickable-image')
@@ -23,18 +21,44 @@ clickableImages.forEach(img => {
 
         // Show the selected character 
         displayAvatarCharacter()
+        checkFinishButton()
     })
 })
 
 // Function to display the selected Avatar
 function displayAvatarCharacter() {
     if (selectedAvatar.head) {
-        const avatarHTML = `<img src="img/${selectedAvatar.head}.png" alt="${selectedAvatar.head}">`;
-        document.getElementById('avatar-character').innerHTML = avatarHTML;
+        const avatarHTML = `<img src="img/${selectedAvatar.head}.png" alt="${selectedAvatar.head}">`
+        document.getElementById('avatar-character').innerHTML = avatarHTML
     }
 }
 
-// Function to start the game when the "Start Game" button is pressed
+// Function to check display of Finish button.
+function checkFinishButton() {
+    const playerName = document.getElementById('player-name').value.trim() // Read player's name
+    const finishButton = document.getElementById('finish')
+
+    // Show Finish button when user enters name and selects Avatar.
+    if (playerName && selectedAvatar.head) {
+        finishButton.style.display = 'inline-block'
+    } else {
+        finishButton.style.display = 'none'
+    }
+}
+
+// Check player name when user enters data
+document.getElementById('player-name').addEventListener('input', checkFinishButton)
+
+// When click "finish" button
+document.getElementById('finish').addEventListener('click', function() {
+    const playerName = document.getElementById('player-name').value.trim()
+    const messageDiv = document.getElementById('game-message')
+    messageDiv.innerHTML = 
+        `<p>Välkommen, ${playerName}! Ditt val är klart.</p>
+        <p>Du har valt Avatar: ${selectedAvatar.head}</p>`
+})
+
+// Function when the button is pressed
 document.getElementById('start-game').addEventListener('click', function() {
     // Get player names
     const playerName = document.getElementById('player-name').value.trim() // Get the player's name
@@ -53,5 +77,5 @@ document.getElementById('start-game').addEventListener('click', function() {
 
     // Show player's name and avatar when start game
     console.log(`Välkommen, ${playerName}! Spelet startar...`)
-    console.log(`Du har valt Avatar: ${selectedParts.head}`)
+    console.log(`Du har valt Avatar: ${selectedAvatar.head}`)
 }) 
