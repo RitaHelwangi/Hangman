@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 body 
@@ -32,7 +33,7 @@ body
     transform: scale(1.05);
 }
 
-
+/* Score-box*/
 #score-container 
 {
     background-color: #1a1a1a;
@@ -45,13 +46,19 @@ body
     margin-top: 80px;
 }
 
-
+/* Poängvy rubrik*/
 h1 
 {
     text-align: center;
     font-size: 2.5rem;
     color: #fff;
     margin-bottom: 20px;
+}
+
+/* underrubriker */
+.gamer
+{
+    border-bottom: 3px solid white;
 }
 
 
@@ -75,6 +82,7 @@ h1
 {
     font-family: 'Courier New', Courier, monospace;
     color: white;
+
 }
 
 .result-columns
