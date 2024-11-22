@@ -14,15 +14,38 @@ body {
     height: 100vh;
     background: url('../img/Chalkboard-bg.jpg') no-repeat center center fixed;
     background-size: cover; 
+    flex-direction: column;
+}
+
+/* Welcome text */
+.welcome-text h1 {
+    transition: transform 0.5s ease;
+}
+.welcome-text h1:hover {
+    transform: translateY(30px); /* Moves down the text 30px when hovered */
+    cursor: pointer;
+} 
+.Hangman-img {
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
 }
 
 /* Start page container */
 .start-page {
     text-align: center;
-    background: white;
+    background: black;
+    color: white;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 /* Img */
@@ -31,7 +54,11 @@ body {
     height: 100px;
     cursor: pointer;
     margin: 5px;
+    transition: transform 0.3s ease; /* Smooth transition for the image */
 }
+.option img:hover {
+    transform: translateX(20px); /* Moves the image 20px to the right when hovered */
+} 
 
 /* When an image is clicked and selected */
 .clickable-image.selected {
