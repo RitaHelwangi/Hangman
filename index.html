@@ -15,15 +15,15 @@
 
 		</ul>
 	</nav>
-
-	<button class="show-winner-btn">win</button>
-	<button class="show-loser-btn">lose</button>
-
+	<div class="WL-buttons">
+		<button class="show-winner-btn">win</button>
+		<button class="show-loser-btn">lose</button>
+	</div>	
 	<section id="lose" class="hidden">
 		<div class="game-over">
 			<h1>Game over...</h1>
-			<img src="halloween_16279476.png" alt="gravestone">
-			<p><strong>Försök igen!</strong></p>
+			<img id="RIP" src="halloween_16279476.png" alt="gravestone">
+			<p class="try-again"><strong>Försök igen!</strong></p>
 		</div>
 		<div class="game-history">
 			<p>Ordet är: </p>
@@ -36,6 +36,7 @@
 	<section id="win" class="hidden">
 		<div class="winner">
 			<h1>Grattis!</h1>
+			<p>Du gissade ordet: </p>
 			<img src="IMG_2830.png" alt="Happy Hangman">
 		</div>
 		<div class="game-history">
@@ -46,13 +47,6 @@
 		</div>
 	</section>
 	<div>
-		<h2><strong>Poängvy</strong></h2>
-		<p>Namn: </p>
-		<p>Antal felaktiga gissningar: </p>
-		<p>Ordets längd: </p>
-		<p>Datum/tid för omgången</p>
-		<p>Vann/förlorade</p>
-
 		<p id="randomWordDisplay"></p>
 
 	</div>

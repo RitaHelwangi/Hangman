@@ -1,19 +1,44 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Indie Flower", serif;
+	font-weight: 400;
+	font-style: normal;
+	background-color: #333;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
 ul {
 	display: flex;
 	border: 1px solid black;
 	gap: 1em;
 	cursor: pointer;
 	list-style-type: none;
-	background-color: rgb(185, 173, 173)
+	background-color: rgb(32, 30, 30)
 }
 li {
 	border: 1px solid black;
 	padding: 0.5em 1.2em
 }
+.WL-buttons {
+	margin-bottom: 1em;
+	cursor: pointer;
+}
 button{
 	margin-top: 1em;
 	padding: 0.5em 1.2em;
 	box-shadow: 0.3em 0.3em 0.3em rgb(116, 115, 115);
+	cursor: pointer;
+}
+.WL-buttons:hover{
 	cursor: pointer;
 }
 .hidden {
@@ -30,6 +55,7 @@ button{
 	background-color: rgb(53, 34, 34);
 	color: rgb(207, 199, 199);
 	box-shadow: 0.3em 0.3em 0.3em rgb(116, 115, 115);
+	padding: 0.7em;
 	
 }
 h1{
@@ -37,6 +63,7 @@ h1{
 }
 p{
 	font-size: 1em;
+	padding: 1em;
 }
 .game-history {
 	display: flex;
@@ -45,18 +72,23 @@ p{
 	flex-direction: column;
 	border: 2px solid black;
 	background-color: lightgray;
+	color: black;
 	margin-top: 0.3em;
-	padding: 0.5em;
+	padding: 0.8em;
 	box-shadow: 0.3em 0.3em 0.3em rgb(116, 115, 115);
+	
+}
+#RIP{
+	width: 7em;
 }
 .winner{
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	font-size: 2em;
+	font-size: 1.8em;
 	border: 2px solid black;
-	background-color: rgb(53, 34, 34);
+	background-color: rgb(31, 29, 29);
 	color: rgb(207, 199, 199);
 	box-shadow: 0.3em 0.3em 0.3em rgb(116, 115, 115);
 }
