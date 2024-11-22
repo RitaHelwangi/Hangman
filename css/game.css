@@ -47,7 +47,7 @@ body {
 }
 
 /* Finish button */
-#finish {
+#finish, #start-game {
     margin-top: 20px;
     background-color: green;
     color: white;
@@ -57,7 +57,7 @@ body {
     cursor: pointer;
     display: none;
 }
-#finish:hover {
+#finish:hover, #start-game:hover {
     background-color: darkgreen;
 }
 
