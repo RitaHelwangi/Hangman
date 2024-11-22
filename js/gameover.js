@@ -54,6 +54,27 @@ function showEndScreen(isWinner, word) {
 		document.querySelector('#lose').classList.remove('hidden');
     	document.querySelector('#win').classList.add('hidden');
 	}
-	console.log(isWinner);
 	
+	//anropa function
+	showEndScreen()
 }
+// Anropa funktionen med exempelvärden
+showEndScreen(true, 'exampleWord'); // Detta visar vinstskärmen
+showEndScreen(false, 'exampleWord'); // Detta visar förlustskärmen
+
+//Om du har en knapp på din webbsida som ska anropa din funktion när den klickas, kan du göra så här:
+/*
+<button id="endGameButton">Avsluta spel</button>
+
+<script>
+    document.getElementById('endGameButton').addEventListener('click', function() {
+        // Här kan du bestämma om spelaren vann eller förlorade
+        const playerWon = true; // eller false beroende på spelet
+        const wordUsed = 'exampleWord';
+        
+        // Anropa showEndScreen-funktionen
+        showEndScreen(playerWon, wordUsed);
+    });
+</script>
+
+*/
