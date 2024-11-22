@@ -1,0 +1,64 @@
+/* Game View */
+#game-view {
+  font-family: "Indie Flower", serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.game-info {
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-family: "Indie Flower", serif;
+}
+
+#word-display {
+  font-size: 2rem;
+  letter-spacing: 5px;
+  margin: 20px 0;
+  font-family: "Indie Flower", serif;
+}
+
+#incorrect-guesses {
+  font-size: 1.2rem;
+  color: #d9534f;
+  font-family: "Indie Flower", serif;
+}
+
+label {
+  font-size: 1rem;
+  margin-top: 10px;
+  font-family: "Indie Flower", serif;
+}
+
+input {
+  font-size: 1.5rem;
+  width: 50px;
+  text-align: center;
+  margin: 10px;
+  padding: 5px;
+  font-family: "Indie Flower", serif;
+}
+
+button {
+  font-size: 1rem;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  font-family: "Indie Flower", serif;
+}
+
+button:hover {
+  background-color: #218838;
+}
