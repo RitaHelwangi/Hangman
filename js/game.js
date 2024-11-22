@@ -76,6 +76,6 @@ document.getElementById('start-game').addEventListener('click', function() {
     }
 
     // Show player's name and avatar when start game
-    console.log(`Välkommen, ${playerName}! Spelet startar...`)
+    console.log(`Välkommen: ${playerName}! Spelet startar...`)
     console.log(`Du har valt Avatar: ${selectedAvatar.head}`)
 }) 
