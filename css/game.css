@@ -62,3 +62,20 @@ button {
 button:hover {
   background-color: #218838;
 }
+
+/* hangman figure */
+
+/* Hide figure */
+#hangman-figure-section .hangman-figure path,
+#hangman-figure-section .hangman-figure ellipse {
+  visibility: hidden;
+}
+
+/* show parts of the figure when its wrong guess */
+.hangman-figure.wrong-guess-1 #scaffold,
+.hangman-figure.wrong-guess-2 #legs,
+.hangman-figure.wrong-guess-3 #arms,
+.hangman-figure.wrong-guess-4 #body,
+.hangman-figure.wrong-guess-5 #head {
+  visibility: visible;
+}
