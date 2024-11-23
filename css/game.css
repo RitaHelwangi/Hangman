@@ -96,6 +96,7 @@ body {
 /* start game button */
 #start-game {
     transition: transform 0.3s ease-in-out;
+    cursor: pointer;
 }
 #start-game:hover {
     transform: scale(1.05);
