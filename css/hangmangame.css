@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    font-family: "Indie Flower", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Body */
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('../img/Chalkboard-bg.jpg') no-repeat center center fixed;
+    background-size: cover; 
+    flex-direction: column;
+}
+
+/* Welcome text */
+.welcome-text h1 {
+    transition: transform 0.5s ease;
+}
+.welcome-text h1:hover {
+    transform: translateY(30px); /* Moves down the text 30px when hovered */
+    cursor: pointer;
+} 
+.Hangman-img {
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+/* Start page container */
+.start-page {
+    text-align: center;
+    background: black;
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Img */
+.option img {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    margin: 5px;
+    transition: transform 0.3s ease; /* Smooth transition for the image */
+}
+.option img:hover {
+    transform: translateX(20px); /* Moves the image 20px to the right when hovered */
+} 
+
+/* When an image is clicked and selected */
+.clickable-image.selected {
+    border: 2px solid red;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+}
+
+/* Display area for selected Avatar */
+#avatar-character img {
+    width: 150px;
+    height: 150px;
+    margin-top: 20px;
+}
+
+/* Finish button */
+#finish {
+    margin-top: 20px;
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
+#finish:hover {
+    background-color: darkgreen;
+}
+
+/* Display for game message */
+#game-message {
+    margin-top: 20px;    
+}
+
+/* start game button */
+#start-game {
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+#start-game:hover {
+    transform: scale(1.05);
+}
+
+/* Media Queries for Responsive Design */
+
+/* 576px for mobile */
+@media (max-width: 576px) {
+    .start-page {
+        width: 90%;
+        padding: 10px;
+    }
+    .option img {
+        width: 80px;
+        height: 80px;
+    }
+    #avatar-character img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* 577px for S size taplet */
+@media (min-width: 577px) and (max-width: 768px) {
+    .start-page {
+        width: 70%;
+    }
+    .option img {
+        width: 90px;
+        height: 90px;
+    }
+    #avatar-character img {
+        width: 130px;
+        height: 130px;
+    }
+}
+
+/* 769px for M size taplet */
+@media (min-width: 769px) and (max-width: 992px) {
+    .start-page {
+        width: 60%;
+    }
+    .option img {
+        width: 100px;
+        height: 100px;
+    }
+    #avatar-character img {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+/* 993px for normal desktop */
+@media (min-width: 993px) and (max-width: 1200px) {
+    .start-page {
+        width: 50%;
+    }
+    .option img {
+        width: 110px;
+        height: 110px;
+    }
+    #avatar-character img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* 1201px for 4K or Ultra Wide size */
+@media (min-width: 1201px) {
+    .start-page {
+        width: 40%;
+    }
+    .option img {
+        width: 120px;
+        height: 120px;
+    }
+    #avatar-character img {
+        width: 160px;
+        height: 160px;
+    }
+}
