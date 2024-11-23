@@ -93,6 +93,14 @@ body {
     margin-top: 20px;    
 }
 
+/* start game button */
+#start-game {
+    transition: transform 0.3s ease-in-out;
+}
+#start-game:hover {
+    transform: scale(1.05);
+}
+
 /* Media Queries for Responsive Design */
 
 /* 576px for mobile */
