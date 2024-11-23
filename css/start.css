@@ -47,3 +47,59 @@ button {
 button:hover {
     background-color: darkgreen;
 }
+
+/* Media Queries for Responsive Design */
+
+/* Phones less than 600px */
+@media screen and (max-width: 599px) {
+    body {
+        padding: 10px;
+    }
+    #guessInput {
+        font-size: 16px;
+        width: 120px;
+        padding: 8px;
+    }
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+    #game {
+        margin-top: 30px;
+    }
+}
+
+/* Tablets, landscape phones 600px-1024px */
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+    #guessInput {
+        font-size: 18px;
+        width: 130px;
+        padding: 10px;
+    }
+    button {
+        font-size: 16px;
+        padding: 12px 24px;
+    }
+    #game {
+        margin-top: 40px;
+    }
+}
+
+/* Laptops, large tablets 1025px & more */
+@media screen and (min-width: 1025px) {
+    body {
+        padding: 20px;
+    }
+    #guessInput {
+        font-size: 20px;
+        width: 150px;
+        padding: 12px;
+    }
+    button {
+        font-size: 18px;
+        padding: 14px 28px;
+    }
+    #game {
+        margin-top: 50px;
+    }
+}
