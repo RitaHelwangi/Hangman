@@ -1,27 +1,3 @@
-//poängvy
-
-/*let result = [
-	name, guesses, wordLength,date, time, wins, losses,
-]
-
-array.forEach(element => {
-	
-});
-
-//datum+tid
-let now = new Date();
-alert( now ); // shows current date/time*/
-
-//slumpa fram ett ord. 
-const words = ["äpple", "banan", "citron"];
-
-//slumpa ett index Math.random()
-const randomIndex = Math.floor(Math.random()* words.length);
-
-//välj ordet
-const randomWord = words[randomIndex];
-//console.log(randomWord);
-document.getElementById("randomWordDisplay").textContent = randomWord;
 
 //toggle vy
 /*
@@ -58,23 +34,3 @@ function showEndScreen(isWinner, word) {
 	//anropa function
 	showEndScreen()
 }
-// Anropa funktionen med exempelvärden
-showEndScreen(true, 'exampleWord'); // Detta visar vinstskärmen
-showEndScreen(false, 'exampleWord'); // Detta visar förlustskärmen
-
-//Om du har en knapp på din webbsida som ska anropa din funktion när den klickas, kan du göra så här:
-/*
-<button id="endGameButton">Avsluta spel</button>
-
-<script>
-    document.getElementById('endGameButton').addEventListener('click', function() {
-        // Här kan du bestämma om spelaren vann eller förlorade
-        const playerWon = true; // eller false beroende på spelet
-        const wordUsed = 'exampleWord';
-        
-        // Anropa showEndScreen-funktionen
-        showEndScreen(playerWon, wordUsed);
-    });
-</script>
-
-*/
