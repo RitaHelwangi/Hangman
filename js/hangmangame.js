@@ -54,14 +54,14 @@ document.getElementById('finish').addEventListener('click', function () {
 
 // Function to show a notification message on display
 function showDialog(message) {
-    const dialog = document.getElementById('custom-dialog')
+    const dialog = document.getElementById('dialog')
     document.getElementById('dialog-message').textContent = message
     dialog.showModal()
 }
 
 // Hide dialog when close button is pressed
 document.getElementById('dialog-close').addEventListener('click', function () {
-    document.getElementById('custom-dialog').close()
+    document.getElementById('dialog').close()
 })
 
 // When click "Start" button
