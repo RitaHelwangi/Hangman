@@ -24,22 +24,61 @@ let guessedLetters = [];
 let incorrectGuesses = []; 
 const maxIncorrectGuesses = 6;
 
-
-function initializeGame() {
-  // Pick a random word from the list
-  secretWord = words[Math.floor(Math.random() * words.length)];
-
+// Initialize Game
+function initGame() {
+  wordToGuess = getRandomWord();
   guessedLetters = [];
   incorrectGuesses = [];
-  
   updateWordDisplay();
   updateIncorrectGuesses();
+  resetHangman();
+}
+
+// Get Random Word
+function getRandomWord() {
+  return wordList[Math.floor(Math.random() * wordList.length)];
+}
+
+// Handle Guess
+function handleGuess() {
+  const letter = guessInput.value.toUpperCase();
+  guessInput.value = "";
+
+  if (!letter || !/^[A-ZÅÄÖ]$/.test(letter)) {
+    showCustomDialog("Vänligen skriv in en giltig bokstav.");
+    return;
+  }
+
+  if (guessedLetters.includes(letter) || incorrectGuesses.includes(letter)) {
+    showCustomDialog("Du har redan gissat denna bokstav!");
+    return;
+  }
+
+  if (wordToGuess.includes(letter)) {
+    guessedLetters.push(letter);
+  } else {
+    incorrectGuesses.push(letter);
+    revealHangmanPart();
+  }
+
+  updateWordDisplay();
+  updateIncorrectGuesses();
+
+  if (checkWin()) {
+    showCustomDialog("Grattis! Du gissade ordet!");
+    initGame();
+  } else if (incorrectGuesses.length >= maxIncorrectGuesses) {
+    showCustomDialog(`Du förlorade! Ordet var: ${wordToGuess}`);
+    initGame();
+  }
+}
+
   
   // input and button
   document.getElementById('guess-input').disabled = false;
   document.getElementById('guess-btn').disabled = false;
   document.getElementById('guess-input').value = '';  // Clear the input field
-}
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
