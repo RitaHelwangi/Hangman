@@ -9,15 +9,14 @@
 body 
 {
     font-family: "Indie Flower", serif;
-    font-weight: 400;
-    font-style: normal;
     background-color: #333;
     color: white;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto;
     flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    margin: 0;
 }
 
 /* Gubbar */
@@ -41,79 +40,51 @@ body
     background-color: #1a1a1a;
     padding: 30px;
     border-radius: 15px;
-    width: 80%;
+    width: 90%;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
     text-align: center;
-    margin-bottom: 30px;
     margin-top: 30px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
 }
 
 /* Poängvy rubrik*/
 h1 
 {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #fff;
-    margin-bottom: 20px;
-
-}
-
-/* underrubriker */
-.gamer
-{
+    font-size: 2rem;
+    margin-bottom: 40px;
     border-bottom: 3px solid white;
 }
 
+.result-lista 
+{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
 
-.score-lista 
+/* Resultat-listan */
+.result-item 
 {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.score-item 
-{
-    background-color: #2a2a2a;
     padding: 10px;
-    border-radius: 5px;
-    text-align: center;
+    border-bottom: 1px solid #444;
+    align-items: center;
 }
 
-
-.score-item p 
+/* redigera rubriker kolumner */
+.header-row 
 {
-    color: white;
-
+    font-size: 20px; 
+    color: #fff; 
+    font-weight: bold;
+    padding: 19px;
 }
-
-/*.result-columns
-{
-    display: grid;
-    grid-template-columns: repeat(1fr); 
-    gap: 60px;
-    margin-top: 20px;
-    padding: 20px;
-}
-    */
-
-    .result-lista 
-    {
-        display: flex;  
-        justify-content: space-between; 
-        margin-top: 20px;
-        width: 100%;
-        flex-wrap: wrap;
-    }
 
 /* Kolumn för resultat */
-.column 
+.column
 {
-    background-color: #2a2a2a;
+    background-color: #2e2c2c;
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
@@ -122,64 +93,26 @@ h1
     text-align: center;
 }
 
-.gamer
-{
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 10px;
-}
-
-.column p#result-name,
-.column p#result-guess,
-.column p#result-length,
-.column p#result-time,
-.column p#result-game 
-{
-    font-size: 20px;
-    color: #ddd;
-    margin-top: 20px;
-}
-
-.column strong 
-{
-    font-weight: bold;
-}
-
 /* Knappar */
-#button-container 
+button
 {
-    display: flex;
-    gap: 20px; 
-    padding: 0 20px;
-    bottom: 40px;
-    top: 40px;
-}
-
-#sort-button, #newgame-button 
-{
+    margin: 30px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 20px;
     background-color: green;
     color: white;
-    font-size: 18px;
-    padding: 15px 30px;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    font-size: 1rem;
     width: 200px;
-
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-#sort-button:hover 
+button:hover 
 {
     background-color: darkgreen;
     transform: scale(1.05);
 }
 
-#newgame-button:hover 
-{
-    background-color: darkgreen;
-    transform: scale(1.05);
-}
-     
 

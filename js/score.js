@@ -1,31 +1,24 @@
 
-// Funktion för att visa resultaten
-function laggTillResultat(result) 
-{
-    // Container där resultaten ska läggas till
+function laggTillResultat(result) {
     const resultContainer = document.getElementById('result-lista');
 
-    // Om det inte finns några resultat, gör inget
-    if (!result || result.length === 0) return;
+    // Rensa innehåll för att undvika duplicering
+    resultContainer.innerHTML = '';
 
-    // Om det är första gången, lägg till header-raden
-    if (resultContainer.children.length === 0) 
-        {
-        const headerRow = document.createElement('div');
-        headerRow.classList.add('result-item');
-        headerRow.innerHTML = `
-            <div class="column"><strong>Spelare</strong></div>
-            <div class="column"><strong>Felaktiga Gissningar</strong></div>
-            <div class="column"><strong>Ordets Längd</strong></div>
-            <div class="column"><strong>Tid</strong></div>
-            <div class="column"><strong>Resultat</strong></div>
-        `;
-        resultContainer.appendChild(headerRow);
-    }
+    // Skapa header-raden
+    const headerRow = document.createElement('div');
+    headerRow.classList.add('result-item', 'header-row');
+    headerRow.innerHTML = `
+        <div class="column"><strong>Spelare</strong></div>
+        <div class="column"><strong>Felaktiga Gissningar</strong></div>
+        <div class="column"><strong>Ordets Längd</strong></div>
+        <div class="column"><strong>Tid</strong></div>
+        <div class="column"><strong>Resultat</strong></div>
+    `;
+    resultContainer.appendChild(headerRow);
 
-    // Loopa genom alla spelare och visa deras resultat
-    result.forEach((player) => 
-        {
+    // Lägg till varje spelares resultat
+    result.forEach((player) => {
         const resultItem = document.createElement('div');
         resultItem.classList.add('result-item');
         resultItem.innerHTML = `
@@ -39,22 +32,22 @@ function laggTillResultat(result)
     });
 }
 
-// Funktion för att sortera resultaten efter felaktiga gissningar
-function sorteraResultat(result) 
-{
-    // Sortera listan baserat på felaktiga gissningar
-    return result.sort((a, b) => a.incorrectGuesses - b.incorrectGuesses); // Sorterar i stigande ordning
+
+// Sortera-knappen
+function sorteraResultat(result) {
+    return result.sort((a, b) => a.incorrectGuesses - b.incorrectGuesses);
 }
 
-// Hämta resultaten från localStorage och visa
 document.addEventListener('DOMContentLoaded', () => {
+    // Hämta resultat från localStorage
     const result = JSON.parse(localStorage.getItem('gameResults')) || [];
+
     laggTillResultat(result);
 
-    // Sortera när knappen klickas
+    // Lägg till sorteringsfunktion
     const sortButton = document.getElementById('sort-button');
     sortButton.addEventListener('click', () => {
-        const sortedResult = sorteraResultat([...result]); // Gör en kopia av arrayen innan sortering
-        laggTillResultat(sortedResult); // Visa de sorterade resultaten
+        const sortedResult = sorteraResultat([...result]);
+        laggTillResultat(sortedResult);
     });
 });
