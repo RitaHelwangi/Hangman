@@ -134,10 +134,11 @@ h1
 .column p#result-guess,
 .column p#result-length,
 .column p#result-time,
-.column p#result-game {
-    font-size: 1rem;
+.column p#result-game 
+{
+    font-size: 20px;
     color: #ddd;
-    margin-top: 5px;
+    margin-top: 20px;
 }
 
 .column strong 
@@ -145,7 +146,9 @@ h1
     font-weight: bold;
 }
 
-#button-container {
+/* Knappar */
+#button-container 
+{
     display: flex;
     gap: 20px; 
     padding: 0 20px;
@@ -153,7 +156,8 @@ h1
     top: 40px;
 }
 
-#sort-button, #newgame-button {
+#sort-button, #newgame-button 
+{
     background-color: green;
     color: white;
     font-size: 18px;
@@ -166,12 +170,14 @@ h1
 
 }
 
-#sort-button:hover {
+#sort-button:hover 
+{
     background-color: darkgreen;
     transform: scale(1.05);
 }
 
-#newgame-button:hover {
+#newgame-button:hover 
+{
     background-color: darkgreen;
     transform: scale(1.05);
 }
