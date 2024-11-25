@@ -98,15 +98,36 @@ function resetHangman() {
     part.style.visibility = "hidden";
   });
 }
+
+// Check Win Condition
+function checkWin() {
+  return wordToGuess.split("").every((letter) => guessedLetters.includes(letter));
+}
+
+// Show Custom Dialog
+function showCustomDialog(message) {
+  const dialog = document.createElement("div");
+  dialog.classList.add("custom-dialog");
+  dialog.innerHTML = `
+    <p>${message}</p>
+    <button id="close-dialog">OK</button>
+  `;
+  document.body.appendChild(dialog);
+
+  const closeButton = document.getElementById("close-dialog");
+  closeButton.addEventListener("click", () => {
+    document.body.removeChild(dialog);
+  });
+}
+
   
   // input and button
-  document.getElementById('guess-input').disabled = false;
-  document.getElementById('guess-btn').disabled = false;
-  document.getElementById('guess-input').value = '';  // Clear the input field
+  //document.getElementById('guess-input').disabled = false;
+ // document.getElementById('guess-btn').disabled = false;
+  //document.getElementById('guess-input').value = '';  // Clear the input field
 
+// Event Listeners
+guessButton.addEventListener("click", handleGuess);
 
-
-document.addEventListener("DOMContentLoaded", () => {
-	initializeGame();
-});
-
+// Start Game
+initGame();
