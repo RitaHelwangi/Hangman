@@ -1,10 +1,9 @@
 
-
 function laggTillResultat() {
-    // Testdata
-    const result = [];
+    // Hämtar spelardata från localStorage
+    const result = JSON.parse(localStorage.getItem('gameResults')) || [];
 
-    // Hämta container där resultaten ska läggas till
+    // Container där resultaten ska läggas till
     const resultContainer = document.getElementById('result-lista');
 
     if (resultContainer.children.length === 0) {
@@ -24,7 +23,6 @@ function laggTillResultat() {
     result.forEach((player) => {
         const resultItem = document.createElement('div');
         resultItem.classList.add('result-item');  
-        // Lägg till spelarinformation i resultItem
         resultItem.innerHTML = `
             <div class="column">${player.name}</div>
             <div class="column">${player.incorrectGuesses}</div>
@@ -33,7 +31,6 @@ function laggTillResultat() {
             <div class="column">${player.guessedCorrectly ? 'Vann' : 'Förlorade'}</div>
         `;
 
-        // Lägg till resultatet i result-container
         resultContainer.appendChild(resultItem);
     });
 }
