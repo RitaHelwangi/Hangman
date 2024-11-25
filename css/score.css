@@ -16,7 +16,6 @@ body
     align-items: center;
     justify-content: flex-start;
     min-height: 100vh;
-    margin: 0;
 }
 
 /* Gubbar */
@@ -84,7 +83,7 @@ h1
 /* Kolumn för resultat */
 .column
 {
-    background-color: #2e2c2c;
+    background-color: #393636;
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
@@ -102,7 +101,7 @@ button
     border-radius: 20px;
     background-color: green;
     color: white;
-    font-size: 1rem;
+    font-size: 20px;
     width: 200px;
     cursor: pointer;
     transition: all 0.3s ease;
