@@ -86,6 +86,18 @@ function updateIncorrectGuesses() {
   incorrectGuessesDisplay.textContent = incorrectGuesses.join(", ");
 }
 
+// Reveal Hangman Part
+function revealHangmanPart() {
+  const part = hangmanParts[incorrectGuesses.length - 1];
+  if (part) part.style.visibility = "visible";
+}
+
+// Reset Hangman
+function resetHangman() {
+  hangmanParts.forEach((part) => {
+    part.style.visibility = "hidden";
+  });
+}
   
   // input and button
   document.getElementById('guess-input').disabled = false;
