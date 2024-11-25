@@ -73,6 +73,19 @@ function handleGuess() {
   }
 }
 
+// Update Word Display
+function updateWordDisplay() {
+  wordDisplay.textContent = wordToGuess
+    .split("")
+    .map((letter) => (guessedLetters.includes(letter) ? letter : "_"))
+    .join(" ");
+}
+
+// Update Incorrect Guesses
+function updateIncorrectGuesses() {
+  incorrectGuessesDisplay.textContent = incorrectGuesses.join(", ");
+}
+
   
   // input and button
   document.getElementById('guess-input').disabled = false;
