@@ -41,14 +41,13 @@ body {
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-/* Img */
+/* Img Avatar */
 .option img {
     width: 100px;
     height: 100px;
@@ -60,7 +59,7 @@ body {
     transform: translateX(20px); /* Moves the image 20px to the right when hovered */
 } 
 
-/* When an image is clicked and selected */
+/* When an image Avatar is clicked and selected */
 .clickable-image.selected {
     border: 2px solid red;
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
@@ -100,6 +99,31 @@ body {
 }
 #start-game:hover {
     transform: scale(1.05);
+}
+
+/* Dialog */
+dialog {
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+#dialog-close {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#dialog-close:hover {
+    background-color: #0056b3;
 }
 
 /* Media Queries for Responsive Design */
