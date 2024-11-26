@@ -25,7 +25,15 @@ function showEndScreen(isWinner, word) {
 		document.querySelector('#lose').classList.remove('hidden');
     	document.querySelector('#win').classList.add('hidden');
 	}
+	// Visa det vinnande ordet om det finns
+    if (!isWinner && word) {
+        lose.textContent = `Tyvärr, ordet var: ${word}`;
+    }
+}
 	
 	//anropa function
 	showEndScreen()
-}
+    
+// Exempel på hur du anropar funktionen
+// showEndScreen(true, 'example'); // Anropa för en seger
+// showEndScreen(false, 'example'); // Anropa för en förlust
