@@ -47,12 +47,15 @@ function sorteraResultatet(result)
 }
 
 
-// DOMContent????
+// DOMContent???? bTODO TA BORT domcontentloaded!!!
 document.addEventListener('DOMContentLoaded', () => 
 {
     // Hämta resultat från localStorage
     const result = JSON.parse(localStorage.getItem('gameResults')) || [];
-
+	/*result.append({
+		"name": "Hanna",
+		"incorrectGuesses": 5
+	})*/
     laggTillResultat(result);
 
     // Lägg till sorteringsfunktion, gissningar
