@@ -29,7 +29,7 @@ li {
 	padding: 0.5em 1.2em
 }
 .WL-buttons {
-	margin-bottom: 1em;
+	margin-bottom: 1.4em;
 	cursor: pointer;
 }
 button{
@@ -52,14 +52,20 @@ button{
 	flex-direction: column;
 	font-size: 2em;
 	border: 2px solid black;
-	background-color: rgb(53, 34, 34);
+	background-color: rgb(41, 36, 36);
 	color: rgb(207, 199, 199);
 	box-shadow: 0.3em 0.3em 0.3em rgb(116, 115, 115);
 	padding: 0.7em;
 	
 }
-h1{
-	margin: 0.5em;
+.over {
+	margin: 0.5em
+}
+.congrats {
+	margin-top: 0.8em;
+}
+.wword {
+	padding: 1em;
 }
 p{
 	font-size: 1em;
@@ -75,8 +81,12 @@ p{
 	color: black;
 	margin-top: 0.3em;
 	padding: 0.8em;
-	box-shadow: 0.3em 0.3em 0.3em rgb(116, 115, 115);
+	box-shadow: 0.5em 0.5em 0.4em rgb(116, 115, 115);
 	
+}
+.game-history > * {
+	font-size: 1em;
+	padding: 0.6em;
 }
 #RIP{
 	width: 7em;
