@@ -21,11 +21,19 @@ function showEndScreen(isWinner, word) {
 	if (isWinner) {
 		document.querySelector('#win').classList.remove('hidden');
     	document.querySelector('#lose').classList.add('hidden');
-	} else {
+	} else  {
 		document.querySelector('#lose').classList.remove('hidden');
     	document.querySelector('#win').classList.add('hidden');
-	}
+	} 
+	// Visa det vinnande ordet om det finns
+    if (!isWinner && word) {
+        lose.textContent = `Tyvärr, ordet var: ${word}`;
+    }
+}
 	
 	//anropa function
 	showEndScreen()
-}
+    
+// Exempel på hur du anropar funktionen
+// showEndScreen(true, 'example'); // Anropa för en seger
+// showEndScreen(false, 'example'); // Anropa för en förlust
