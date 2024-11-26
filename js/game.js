@@ -9,6 +9,8 @@ const wordDisplay = document.getElementById("word-display");
 const incorrectGuessesDisplay = document.getElementById("incorrect-guesses");
 const guessInput = document.getElementById("guess-input");
 const guessButton = document.getElementById("guess-btn");
+const spelaIgenBtn = document.getElementById("spela-igen-btn");
+const visaPoangBtn = document.getElementById("visa-poang-btn");
 const hangmanParts = [
   document.getElementById("head"),
   document.getElementById("body"),
@@ -122,9 +124,10 @@ function showCustomDialog(message) {
 
   
   // input and button
-  //document.getElementById('guess-input').disabled = false;
- // document.getElementById('guess-btn').disabled = false;
-  //document.getElementById('guess-input').value = '';  // Clear the input field
+ document.getElementById('guess-input').disabled = false;
+ document.getElementById('guess-btn').disabled = false;
+ document.getElementById('guess-input').value = '';  // Clear the input field
+ 
 
 // Event Listeners
 guessButton.addEventListener("click", handleGuess);
