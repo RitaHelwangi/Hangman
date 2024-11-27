@@ -55,6 +55,8 @@ document.querySelector('#start-flik').addEventListener('click', function() {
     document.querySelector('win').classList.add('hide');
 }); */
 
+/*
+//varje knapp både visar och döljer innehållet
 document.querySelector('#start-flik').addEventListener('click', function() {
     const bodyStart = document.querySelector('#body-start'); 
     if (bodyStart.classList.contains('hide')) {
@@ -80,4 +82,31 @@ document.querySelector('#score-flik').addEventListener('click', function() {
     } else {
         bodyScore.classList.add('hide'); // Lägg till hide för att dölja
     }
+}); */
+//visa vald flik , dölj de andra
+document.querySelector('#start-flik').addEventListener('click', function() {
+    const bodyStart = document.querySelector('#body-start'); 
+	const bodyGame = document.querySelector('#body-game'); 
+	const bodyScore = document.querySelector('#body-score');
+	document.querySelector('#body-start').classList.remove('hide');
+    document.querySelector('#body-game').classList.add('hide');
+	document.querySelector('#body-score').classList.add('hide');
+});
+
+document.querySelector('#game-wiew-flik').addEventListener('click', function() {
+    const bodyStart = document.querySelector('#body-start'); 
+	const bodyGame = document.querySelector('#body-game'); 
+	const bodyScore = document.querySelector('#body-score');
+	document.querySelector('#body-game').classList.remove('hide');
+    document.querySelector('#body-start').classList.add('hide');
+	document.querySelector('#body-score').classList.add('hide');
+});
+
+document.querySelector('#score-flik').addEventListener('click', function() {
+    const bodyStart = document.querySelector('#body-start'); 
+	const bodyGame = document.querySelector('#body-game'); 
+	const bodyScore = document.querySelector('#body-score');
+	document.querySelector('#body-score').classList.remove('hide');
+    document.querySelector('#body-game').classList.add('hide');
+	document.querySelector('#body-start').classList.add('hide');
 });
