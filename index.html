@@ -17,9 +17,16 @@
 	<script type="module" src="js/score.js"></script>
 	
 </head>
-
-
+<body>
+<nav>
+	<ul>
+		<li id="start-flik">Startsida</li>
+		<li id="game-wiew-flik">Spela Hangman</li>
+		<li id="score-flik"> Dina poäng</li>
+	</ul>
+</nav>
 <!-----------------Start----------------->
+<div id="body-start" class="hide">
 <div class="start-page">
 	<div class="welcome-text">
 		<h1> Välkommen till Hangman spelet ! </h1>
@@ -67,9 +74,10 @@
 	<p id="dialog-message"></p>
 	<button id="dialog-close"> Stäng </button>
 </dialog>
-
+</div>
 
  <!-- Game View -->
+ <div id="body-game" class="hide">
  <section id="game-view">
 	<div class="game-info">
 	  <h2>Gissa ordet:</h2>
@@ -144,15 +152,10 @@
 	  </svg>
 	</figure>
   </section>
-
+</div>
 <!-----------Win/lose------------>
-<body>
-	<nav>
-		<ul>
-			<li>Spela Hangman</li>
-			<li>Dina poäng</li>
-		</ul>
-	</nav>
+
+	
 	<div class="WL-buttons">
 		<button class="show-winner-btn">win</button>
 		<button class="show-loser-btn">lose</button>
@@ -195,6 +198,7 @@
 	<!--------POÄNGVY----------->
 	
 	<!------Gubbar från spelet-->
+	<div id="body-score" class="hide">
 	<div class="option" id="head">
 		<img src="img/Avatar-alien.png" alt="Avatar-alien" class="clickable-image" data-part="Avatar-alien">  
 		<img src="img/Avatar-ghost.png" alt="Avatar-ghos" class="clickable-image" data-part="Avatar-ghos"> 
@@ -242,6 +246,6 @@
 		<button id="time-button">Sortera efter datum</button>
 		<button id="newgame-button">Spela igen</button>
 	</div>
-	
+</div>
 </body>
 </html>

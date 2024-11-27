@@ -37,3 +37,31 @@ function showEndScreen(isWinner, word) {
 // Exempel på hur du anropar funktionen
 // showEndScreen(true, 'example'); // Anropa för en seger
 // showEndScreen(false, 'example'); // Anropa för en förlust
+
+// Flikar toggla mellan spelvyer
+document.querySelector('#start-flik').addEventListener('click', function() {
+    const bodyStart = document.querySelector('#body-start'); 
+	const bodyGame = document.querySelector('#body-game'); 
+	const bodyScore = document.querySelector('#body-score');
+	document.querySelector('#body-start').classList.remove('hide');
+    document.querySelector('#body-game').classList.add('hide');
+	document.querySelector('#body-score').classList.add('hide');
+});
+
+document.querySelector('#game-wiew-flik').addEventListener('click', function() {
+    const bodyStart = document.querySelector('#body-start'); 
+	const bodyGame = document.querySelector('#body-game'); 
+	const bodyScore = document.querySelector('#body-score');
+	document.querySelector('#body-game').classList.remove('hide');
+    document.querySelector('#body-start').classList.add('hide');
+	document.querySelector('#body-score').classList.add('hide');
+});
+
+document.querySelector('#score-flik').addEventListener('click', function() {
+    const bodyStart = document.querySelector('#body-start'); 
+	const bodyGame = document.querySelector('#body-game'); 
+	const bodyScore = document.querySelector('#body-score');
+	document.querySelector('#body-score').classList.remove('hide');
+    document.querySelector('#body-game').classList.add('hide');
+	document.querySelector('#body-start').classList.add('hide');
+});
