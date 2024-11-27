@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Hangman </title>
+    <link rel="stylesheet" href="css/start.css">
+    <script type="module" src="js/start.js"></script>
+</head>
+<body>
+    <div class="start-page">
+        <div class="welcome-text">
+            <h1> Välkommen till Hangman spelet ! </h1>
+            <img class="Hangman-img" src="img/Hangman.png" alt="Hangman">
+        </div>
+        <!-- Player info -->
+        <div class="player-info">
+            <label for="player-name"> Ange ditt namn: </label>
+            <input type="text" id="player-name" placeholder="Ditt namn">
+        </div>
+        <!-- Choose your Avatar -->
+        <h2> Välj din Avatar </h2>
+        <div class="option" id="head">
+            <img src="img/Avatar-alien.png" alt="Avatar-alien" class="clickable-image" data-part="Avatar-alien">  
+            <img src="img/Avatar-ghost.png" alt="Avatar-ghost" class="clickable-image" data-part="Avatar-ghost"> 
+            <img src="img/Avatar-ninja.png" alt="Avatar-ninja" class="clickable-image" data-part="Avatar-ninja"> 
+            <img src="img/Avatar-robot.png" alt="Avatar-robot" class="clickable-image" data-part="Avatar-robot"> 
+            <img src="img/Avatar-superhero.png" alt="Avatar-superhero" class="clickable-image" data-part="Avatar-superhero"> 
+            <img src="img/Avatar-unicorn.png" alt="Avatar-unicorn" class="clickable-image" data-part="Avatar-unicorn"> 
+            <img src="img/Avatar-wizard.png" alt="Avatar-wizard" class="clickable-image" data-part="Avatar-wizard"> 
+        </div>    
+        <!-- Display selected Avatar -->
+        <div class="avatar-container">
+            <h3> Här är din Avatar </h3>
+            <div id="avatar-character">
+            <!-- The selected Avatar will appear here -->   
+            </div>
+        </div>
+        <!-- Level buttons -->
+        <h2> Välj din Nivå </h2>
+        <div class="difficulty-buttons">
+            <button id="easy"> Lätt </button>
+            <button id="medium"> Medel </button>
+            <button id="hard"> Svårt </button>
+        </div>
+        <!-- Finish button -->
+        <button id="finish"> Finish </button>
+        <!-- Display welcome text --> 
+        <div id="game-message"></div>  
+        <!-- Start game button -->
+        <button id="start-game"> Start </button>
+    </div>
+    <!-- Dialog (show alert message) -->
+    <dialog id="dialog">
+        <p id="dialog-message"></p>
+        <button id="dialog-close"> Stäng </button>
+    </dialog>
+</body>
+</html>

@@ -21,7 +21,7 @@ function showEndScreen(isWinner, word) {
 	if (isWinner) {
 		document.querySelector('#win').classList.remove('hidden');
     	document.querySelector('#lose').classList.add('hidden');
-	} else {
+	} else  {
 		document.querySelector('#lose').classList.remove('hidden');
     	document.querySelector('#win').classList.add('hidden');
 	}
