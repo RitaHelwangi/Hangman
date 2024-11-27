@@ -1,12 +1,6 @@
 import { words } from "./svenska-ord.js";
 
 
-// List of words "EDIT LATER!"
-const wordList = [
-  "JAVASCRIPT", "PROGRAMMING", "DEVELOPER", "HANGMAN", "CODING",
-  "SOFTWARE", "ALGORITHM", "DEBUGGING", "FUNCTION", "VARIABLE"
-];
-
 // DOM Elements
 const wordDisplay = document.getElementById("word-display");
 const incorrectGuessesDisplay = document.getElementById("incorrect-guesses");
