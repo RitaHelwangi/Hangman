@@ -44,6 +44,16 @@ function sorteraResultatet(result)
 {
     return result.sort((a, b) => new Date(a.getTime) - new Date(b.getTime));
 }
+//flik toggla vy
+
+document.querySelector('#score-flik').addEventListener('click', function() {
+    const scoreContainer = document.querySelector('#score-container'); // Se till att använda # för id
+    if (scoreContainer.classList.contains('hide')) {
+        scoreContainer.classList.remove('hide'); // Ta bort hide för att visa
+    } else {
+        scoreContainer.classList.add('hide'); // Lägg till hide för att dölja
+    }
+});
 
 
 // Hämta resultat från localStorage

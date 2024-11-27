@@ -14,7 +14,18 @@
 	<script type="module" src="js/score.js"></script>
 	
 </head>
-
+	<body>
+	<nav>
+		<ul>
+			<li id="start-flik">Startsida</li>
+			<li id="game-wiew-flik">Spela Hangman</li>
+			<li id="score-flik"> Dina poäng</li>
+		</ul>
+	</nav>
+	<div class="WL-buttons">
+		<button class="show-winner-btn">win</button>
+		<button class="show-loser-btn">lose</button>
+	</div>
 
 <!-----------------Start----------------->
 <div class="start-page">
@@ -67,18 +78,7 @@
 
 
 <!-----------Win/lose------------>
-<body>
-	<nav>
-		<ul>
-			<li id="start-flik">Startsida</li>
-			<li id="game-wiew-flik">Spela Hangman</li>
-			<li id="score-flik"> Dina poäng</li>
-		</ul>
-	</nav>
-	<div class="WL-buttons">
-		<button class="show-winner-btn">win</button>
-		<button class="show-loser-btn">lose</button>
-	</div>
+
 	<section id="lose" class="hidden">
 		<div class="game-over">
 			<h1 class="over">Game over...</h1>
@@ -125,7 +125,7 @@
 	</div>
 	
 	<!-- Poängvy -->
-	<div id="score-container">
+	<div id="score-container" class="hide">
 		<h1>Poängvy</h1>
 		<div class="result-lista" id="result-lista">
 			
