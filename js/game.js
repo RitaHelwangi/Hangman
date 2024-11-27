@@ -1,3 +1,6 @@
+import { words } from "./svenska-ord.js";
+
+
 // List of words "EDIT LATER!"
 const wordList = [
   "JAVASCRIPT", "PROGRAMMING", "DEVELOPER", "HANGMAN", "CODING",
