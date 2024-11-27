@@ -104,6 +104,7 @@ function resetHangman() {
   });
 }
 
+
 // Check Win Condition
 function checkWin() {
   return wordToGuess.split("").every((letter) => guessedLetters.includes(letter));
