@@ -45,6 +45,10 @@ body
     margin-top: 30px;
 }
 
+.hide{
+	display: none;
+}
+
 /* Poängvy rubrik*/
 h1 
 {

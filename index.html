@@ -17,9 +17,16 @@
 	<script type="module" src="js/score.js"></script>
 	
 </head>
-
-
+<body>
+<nav>
+	<ul>
+		<li id="start-flik">Startsida</li>
+		<li id="game-wiew-flik">Spela Hangman</li>
+		<li id="score-flik"> Dina poäng</li>
+	</ul>
+</nav>
 <!-----------------Start----------------->
+<div id="body-start" class="hide">
 <div class="start-page">
 	<div class="welcome-text">
 		<h1> Välkommen till Hangman spelet ! </h1>
@@ -67,9 +74,10 @@
 	<p id="dialog-message"></p>
 	<button id="dialog-close"> Stäng </button>
 </dialog>
-
+</div>
 
  <!-- Game View -->
+ <div id="body-game" class="hide">
  <section id="game-view">
 	<div class="game-info">
 	  <h2>Gissa ordet:</h2>
@@ -144,57 +152,12 @@
 	  </svg>
 	</figure>
   </section>
-
-<!-----------Win/lose------------>
-<body>
-	<nav>
-		<ul>
-			<li>Spela Hangman</li>
-			<li>Dina poäng</li>
-		</ul>
-	</nav>
-	<div class="WL-buttons">
-		<button class="show-winner-btn">win</button>
-		<button class="show-loser-btn">lose</button>
-	</div>
-	<section id="lose" class="hidden">
-		<div class="game-over">
-			<h1 class="over">Game over...</h1>
-			<img id="RIP" src="img/halloween_16279476.png" alt="gravestone" />
-			<p class="try-again"><strong>Försök igen!</strong></p>
-		</div>
-		<div class="game-history">
-			<p>Ordet är:</p>
-			<p>Antal gissningar:</p>
-			<button>Dina poäng</button>
-			<button>Spela igen</button>
-		</div>
-	</section>
-	
-	<section id="win" class="hidden">
-		<div class="winner">
-			<h1 class="congrats">Grattis!</h1>
-			<p class="wword">Du gissade ordet! </p>
-			<img src="img/IMG_2830.png" alt="Happy Hangman">
-		</div>
-		<div class="game-history">
-			<p>Ordet är: </p>
-			<p>Antal gissningar: </p>
-			<button>Dina poäng</button>
-			<button>Spela igen</button>
-		</div>
-	</section>
-	<div>
-		<p id="randomWordDisplay"></p>
-		
-	</div>
-	
-	
-	
+</div>
 	
 	<!--------POÄNGVY----------->
 	
 	<!------Gubbar från spelet-->
+	<div id="body-score" class="hide">
 	<div class="option" id="head">
 		<img src="img/Avatar-alien.png" alt="Avatar-alien" class="clickable-image" data-part="Avatar-alien">  
 		<img src="img/Avatar-ghost.png" alt="Avatar-ghos" class="clickable-image" data-part="Avatar-ghos"> 
@@ -242,6 +205,40 @@
 		<button id="time-button">Sortera efter datum</button>
 		<button id="newgame-button">Spela igen</button>
 	</div>
+</div>
+
+<!-----------Win/lose------------>
 	
+<div class="WL-buttons">
+	<button class="show-winner-btn">win</button>
+	<button class="show-loser-btn">lose</button>
+</div>
+<section id="lose" class="hidden">
+	<div class="game-over">
+		<h1 class="over">Game over...</h1>
+		<img id="RIP" src="img/halloween_16279476.png" alt="gravestone" />
+		<p class="try-again"><strong>Försök igen!</strong></p>
+	</div>
+	<div class="game-history">
+		<p>Ordet är:</p>
+		<p>Antal gissningar:</p>
+		<button>Dina poäng</button>
+		<button>Spela igen</button>
+	</div>
+</section>
+
+<section id="win" class="hidden">
+	<div class="winner">
+		<h1 class="congrats">Grattis!</h1>
+		<p class="wword">Du gissade ordet! </p>
+		<img src="img/IMG_2830.png" alt="Happy Hangman">
+	</div>
+	<div class="game-history">
+		<p>Ordet är: </p>
+		<p>Antal gissningar: </p>
+		<button>Dina poäng</button>
+		<button>Spela igen</button>
+	</div>
+</section>
 </body>
 </html>

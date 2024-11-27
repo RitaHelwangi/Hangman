@@ -16,6 +16,10 @@ body {
   margin: auto;
 }
 
+.hide{
+	display: none;
+}
+
 .game-info {
   text-align: center;
 }
