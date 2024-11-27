@@ -22,7 +22,7 @@ function laggTillResultat(result)
         const resultItem = document.createElement('div');
         resultItem.classList.add('result-item');
         resultItem.innerHTML = `
-            <div class="column">${player.name}</div>
+             <div class="column">${player.name}</div>
             <div class="column">${player.incorrectGuesses}</div>
             <div class="column">${player.wordLength}</div>
             <div class="column">${player.getTime}</div>
@@ -42,19 +42,22 @@ function sorteraResultat(result)
 // Sortera-knappen datum
 function sorteraResultatet(result)
 {
-    return result.sort((a, b) => a.getTime - b.getTime);
+    return result.sort((a, b) => new Date(a.getTime) - new Date(b.getTime));
 }
 
-
-// DOMContent???? bTODO TA BORT domcontentloaded!!!
-document.addEventListener('DOMContentLoaded', () => 
+// Onödig?
+document.addEventListener('', () => 
 {
     // Hämta resultat från localStorage
     const result = JSON.parse(localStorage.getItem('gameResults')) || [];
-	/*result.append({
-		"name": "Hanna",
-		"incorrectGuesses": 5
-	})*/
+	result.append
+    ({
+        name: 'Spelare 1', 
+        incorrectGuesses: 3, 
+        wordLength: word.length,
+        getTime: new Date().toISOString(),
+        guessedCorrectly: vinnare,
+    });
     laggTillResultat(result);
 
     // Lägg till sorteringsfunktion, gissningar
@@ -66,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () =>
 
     // Lägg till sorteringsfunktion, datum/tid
     const timeButton = document.getElementById('time-button');
-    sortButton.addEventListener('click', () => {
+    timeButton.addEventListener('click', () => {
         const sortedResult = sorteraResultatet([...result]);
         laggTillResultat(sortedResult);
     });
