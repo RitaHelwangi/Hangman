@@ -132,6 +132,29 @@ function showCustomDialog(message) {
  document.getElementById('guess-input').value = '';  // Clear the input field
  
 
+ //Mickan lagt till för att spara ner allt till score. 
+ function saveGameResult(didWin) 
+ {
+  // Hämta spelarens namn från start-sidan
+  const playerName = localStorage.getItem('playerName');
+
+  // Skapa resultatobjektet
+  const result = 
+  {
+      name: playerName,  //hämtar namn från start
+      incorrectGuesses: incorrectGuesses.length,
+      wordLength: wordToGuess.length,
+      getTime: new Date().toISOString(),
+      guessedCorrectly: didWin,
+  };
+
+  // Hämta tidigare resultat från localStorage
+  const gameResults = JSON.parse(localStorage.getItem('gameResults')) || [];
+  gameResults.push(result);
+  localStorage.setItem('gameResults', JSON.stringify(gameResults));
+}
+
+
 // Event Listeners
 guessButton.addEventListener("click", handleGuess);
 

@@ -1,10 +1,15 @@
+// Läs in resultaten från localStorage
+const gameResults = JSON.parse(localStorage.getItem("gameResults")) || [];
+
+console.log(gameResults);
+
+// Funktion för att visa resultaten
 function laggTillResultat(result) 
 {
     const resultContainer = document.getElementById('result-lista');
+    resultContainer.innerHTML = ''; // Rensa tidigare resultat
 
-    // rensa TEST, annars blir det extra rader
-    resultContainer.innerHTML = '';
-
+    // Header-rad
     const headerRow = document.createElement('div');
     headerRow.classList.add('result-item', 'header-row');
     headerRow.innerHTML = `
@@ -13,16 +18,15 @@ function laggTillResultat(result)
         <div class="column"><strong>Ordets Längd</strong></div>
         <div class="column"><strong>Tid</strong></div>
         <div class="column"><strong>Resultat</strong></div>`;
-
     resultContainer.appendChild(headerRow);
 
     // Lägg till varje spelares resultat
     result.forEach((player) => 
-    {
+        {
         const resultItem = document.createElement('div');
         resultItem.classList.add('result-item');
         resultItem.innerHTML = `
-             <div class="column">${player.name}</div>
+            <div class="column">${player.name}</div>
             <div class="column">${player.incorrectGuesses}</div>
             <div class="column">${player.wordLength}</div>
             <div class="column">${player.getTime}</div>
@@ -32,42 +36,21 @@ function laggTillResultat(result)
 }
 
 
-// Sortera-knappen gissningar
+//för att visa resultaten
+laggTillResultat(gameResults);
 
-function sorteraResultat(result)
+
+
+// Sortering av resultaten
+document.getElementById('sort-button').addEventListener('click', () => 
 {
-    return result.sort((a, b) => a.incorrectGuesses - b.incorrectGuesses);
-}
-
-// Sortera-knappen datum
-function sorteraResultatet(result)
-{
-    return result.sort((a, b) => new Date(a.getTime) - new Date(b.getTime));
-}
-
-
-// Hämta resultat från localStorage
-/*const result = JSON.parse(localStorage.getItem('gameResults')) || [];
-result.append
-({
-	name: 'Spelare 1', 
-	incorrectGuesses: 3, 
-	wordLength: word.length,
-	getTime: new Date().toISOString(),
-	guessedCorrectly: vinnare,
-});
-laggTillResultat(result);
-
-// Lägg till sorteringsfunktion, gissningar
-const sortButton = document.getElementById('sort-button');
-sortButton.addEventListener('click', () => {
-	const sortedResult = sorteraResultat([...result]);
-	laggTillResultat(sortedResult);
+    const sortedResults = gameResults.sort((a, b) => a.incorrectGuesses - b.incorrectGuesses);
+    laggTillResultat(sortedResults);
 });
 
-// Lägg till sorteringsfunktion, datum/tid
-const timeButton = document.getElementById('time-button');
-timeButton.addEventListener('click', () => {
-	const sortedResult = sorteraResultatet([...result]);
-	laggTillResultat(sortedResult);
-});*/
+document.getElementById('time-button').addEventListener('click', () => 
+{
+    const sortedResults = gameResults.sort((a, b) => new Date(a.getTime) - new Date(b.getTime));
+    laggTillResultat(sortedResults);
+});
+
