@@ -40,17 +40,44 @@ function showEndScreen(isWinner, word) {
 
 //flikar - toggla vyer
 
-document.querySelector('#game-wiew-flik').addEventListener('click', function() {
-	document.querySelector('#game-wiew').classList.remove('hidden');
-    document.querySelector('#game-wies').classList.add('hidden');
+/*document.querySelector('#game-wiew-flik').addEventListener('click', function() {
+	document.querySelector('#game-wiew').classList.remove('hide');
+    document.querySelector('#game-wiew').classList.add('hide');
 });
 
 document.querySelector('#score-flik').addEventListener('click', function() {
-	document.querySelector('score-container').classList.remove('hidden');
-    document.querySelector('score-container').classList.add('hidden');
+	document.querySelector('score-container').classList.remove('hide');
+    document.querySelector('score-container').classList.add('hide');
 });
 
 document.querySelector('#start-flik').addEventListener('click', function() {
-	document.querySelector('lose').classList.remove('hidden');
-    document.querySelector('win').classList.add('hidden');
+	document.querySelector('lose').classList.remove('hide');
+    document.querySelector('win').classList.add('hide');
+}); */
+
+document.querySelector('#start-flik').addEventListener('click', function() {
+    const bodyStart = document.querySelector('#body-start'); 
+    if (bodyStart.classList.contains('hide')) {
+        bodyStart.classList.remove('hide'); // Ta bort hide för att visa
+    } else {
+        bodyStart.classList.add('hide'); // Lägg till hide för att dölja
+    }
+});
+
+document.querySelector('#game-wiew-flik').addEventListener('click', function() {
+    const bodyGame = document.querySelector('#body-game'); 
+    if (bodyGame.classList.contains('hide')) {
+        bodyGame.classList.remove('hide'); // Ta bort hide för att visa
+    } else {
+        bodyGame.classList.add('hide'); // Lägg till hide för att dölja
+    }
+});
+
+document.querySelector('#score-flik').addEventListener('click', function() {
+    const bodyScore = document.querySelector('#body-score'); 
+    if (bodyScore.classList.contains('hide')) {
+        bodyScore.classList.remove('hide'); // Ta bort hide för att visa
+    } else {
+        bodyScore.classList.add('hide'); // Lägg till hide för att dölja
+    }
 });

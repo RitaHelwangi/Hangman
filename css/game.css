@@ -15,7 +15,9 @@ body {
   max-width: 600px;
   margin: auto;
 }
-
+.hide{
+	display: none;
+}
 .game-info {
   text-align: center;
 }
