@@ -44,6 +44,10 @@ function checkFinishButton() {
 document.getElementById('finish').addEventListener('click', function () {
     const playerName = document.getElementById('player-name').value.trim()
     if (playerName && selectedAvatar.head && selectedAvatar.difficulty) {
+
+        //Mickan lagt in för att lägga in namn, till game/score
+        localStorage.setItem('playerName', playerName);
+
         document.getElementById('game-message').innerHTML = `
             <p>Välkommen, ${playerName}! Ditt val är klart.</p>
             <p>Du har valt Avatar: ${selectedAvatar.head}</p>
