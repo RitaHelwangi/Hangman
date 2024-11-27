@@ -37,3 +37,20 @@ function showEndScreen(isWinner, word) {
 // Exempel på hur du anropar funktionen
 // showEndScreen(true, 'example'); // Anropa för en seger
 // showEndScreen(false, 'example'); // Anropa för en förlust
+
+//flikar - toggla vyer
+
+document.querySelector('#game-wiew-flik').addEventListener('click', function() {
+	document.querySelector('#game-wiew').classList.remove('hidden');
+    document.querySelector('#game-wies').classList.add('hidden');
+});
+
+document.querySelector('#score-flik').addEventListener('click', function() {
+	document.querySelector('score-container').classList.remove('hidden');
+    document.querySelector('score-container').classList.add('hidden');
+});
+
+document.querySelector('#start-flik').addEventListener('click', function() {
+	document.querySelector('lose').classList.remove('hidden');
+    document.querySelector('win').classList.add('hidden');
+});

@@ -22,11 +22,16 @@ ul {
 	gap: 1em;
 	cursor: pointer;
 	list-style-type: none;
-	background-color: rgb(32, 30, 30)
+	background-color: rgb(32, 30, 30);
 }
 li {
 	border: 1px solid black;
-	padding: 0.5em 1.2em
+	padding: 0.5em 1.2em;
+	box-shadow: inset 0em 0em 0.4em gray;
+}
+
+.hide {
+	display: none;
 }
 .WL-buttons {
 	margin-bottom: 1.4em;
