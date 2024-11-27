@@ -34,6 +34,14 @@ function showEndScreen(isWinner, word) {
 	//anropa function
 	showEndScreen()
     
+window.addEventListener('load', () => {   
+	const bodyStart = document.querySelector('#body-start');    
+	const bodyGame = document.querySelector('#body-game');    
+	const bodyScore = document.querySelector('#body-score');    
+	bodyStart.classList.remove('hide');    
+	bodyGame.classList.add('hide');    
+	bodyScore.classList.add('hide');
+   
 
 // Flikar toggla mellan spelvyer
 document.querySelector('#start-flik').addEventListener('click', function() {
@@ -44,7 +52,7 @@ document.querySelector('#start-flik').addEventListener('click', function() {
     document.querySelector('#body-game').classList.add('hide');
 	document.querySelector('#body-score').classList.add('hide');
 });
-
+});
 document.querySelector('#game-wiew-flik').addEventListener('click', function() {
     const bodyStart = document.querySelector('#body-start'); 
 	const bodyGame = document.querySelector('#body-game'); 
