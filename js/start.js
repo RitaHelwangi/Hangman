@@ -44,6 +44,12 @@ function checkFinishButton() {
 document.getElementById('finish').addEventListener('click', function () {
     const playerName = document.getElementById('player-name').value.trim()
     if (playerName && selectedAvatar.head && selectedAvatar.difficulty) {
+
+        //för att lägga in namn, till game/score
+        localStorage.setItem('playerName', playerName);
+        // Spara spelarens avatarval i localStorage
+        localStorage.setItem('playerAvatar', selectedAvatar.head);
+
         document.getElementById('game-message').innerHTML = `
             <p>Välkommen, ${playerName}! Ditt val är klart.</p>
             <p>Du har valt Avatar: ${selectedAvatar.head}</p>
@@ -89,6 +95,6 @@ document.getElementById('start-game').addEventListener('click', function () {
     console.log(`Välkommen: ${playerName}! Spelet startar...`)
     console.log(`Du har valt Avatar: ${selectedAvatar.head}`)
     console.log(`Du har valt nivå: ${selectedAvatar.difficulty}`)
-    window.location.href = "start.html"
+    //window.location.href = "start.html"
 })
 
