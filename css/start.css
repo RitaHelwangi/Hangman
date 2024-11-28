@@ -1,3 +1,4 @@
+
 /* Welcome text */
 .welcome-text h1 {
   font-size: 2.5rem;
@@ -213,4 +214,18 @@ dialog::backdrop {
     width: 150px;
     height: 150px;
   }
+
+body {
+  font-family: "Indie Flower", sans-serif;
+  text-align: center;
+}
+
+#start-view {
+  margin-top: 50px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+
 }
