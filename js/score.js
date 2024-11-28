@@ -63,7 +63,7 @@ document.getElementById('sort-button').addEventListener('click', () =>
 // sortering av datum/tid
 document.getElementById('time-button').addEventListener('click', () => 
 {
-    const sortedResults = gameResults.sort((a, b) => new Date(b.getTime) - new Date(a.getTime));
+    const sortedResults = gameResults.sort((a, b) => new Date(b.time) - new Date(a.time));
     laggTillResultat(sortedResults);
 });
 
