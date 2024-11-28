@@ -57,6 +57,7 @@ button {
 p {
   font-size: 1em;
   padding: 1em;
+  color: black;
 }
 .game-history {
   display: flex;
