@@ -70,3 +70,22 @@ document.querySelector('#score-flik').addEventListener('click', function() {
     document.querySelector('#body-game').classList.add('hide');
 	document.querySelector('#body-start').classList.add('hide');
 });
+
+//spela igen och visa poäng buttons
+document.querySelector('#spela-igen-btn').addEventListener('click', function() {
+    const spelaIgenBtn = document.querySelector('#spela-igen-btn'); 
+	const bodyGame = document.querySelector('#body-game'); 
+	const bodyScore = document.querySelector('#body-score');
+	document.querySelector('#body-game').classList.remove('hide');
+	document.querySelector('#body-start').classList.add('hide');
+	document.querySelector('#body-score').classList.add('hide');
+});
+	
+document.querySelector('#visa-poang-btn').addEventListener('click', function() {
+	const visaPoangBtn = document.querySelector('#visa-poang-btn'); 
+	const bodyGame = document.querySelector('#body-game'); 
+	const bodyScore = document.querySelector('#body-score');
+	document.querySelector('#body-score').classList.remove('hide');
+	document.querySelector('#body-game').classList.add('hide');
+	document.querySelector('#body-start').classList.add('hide');
+});

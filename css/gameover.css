@@ -46,6 +46,12 @@ button{
 .WL-buttons:hover{
 	cursor: pointer;
 }
+#spela-igen-btn {
+
+}
+#visa-poang-btn {
+
+}
 .hidden {
 	display: none;
 }
