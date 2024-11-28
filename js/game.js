@@ -35,7 +35,8 @@ function initGame() {
 
 // Get Random Word
 function getRandomWord() {
-  return wordList[Math.floor(Math.random() * wordList.length)];
+//  return wordList[Math.floor(Math.random() * wordList.length)];
+return 'skottkärra'.toLocaleUpperCase()
 }
 
 // Handle Guess
@@ -55,22 +56,58 @@ function handleGuess() {
 
   if (wordToGuess.includes(letter)) {
     guessedLetters.push(letter);
+	console.log('gissade rätt');
+	
   } else {
     incorrectGuesses.push(letter);
     revealHangmanPart();
+	console.log('gissade fel', wordToGuess, letter);
+	
   }
 
   updateWordDisplay();
   updateIncorrectGuesses();
 
   if (checkWin()) {
-    showCustomDialog("Grattis! Du gissade ordet!");
-    initGame();
+    /*showCustomDialog("Grattis! Du gissade ordet!");
+    initGame();*/
+	hideWiews()
+	showEndScreen(true, wordToGuess)
   } else if (incorrectGuesses.length >= maxIncorrectGuesses) {
-    showCustomDialog(`Du förlorade! Ordet var: ${wordToGuess}`);
-    initGame();
+    /*showCustomDialog(`Du förlorade! Ordet var: ${wordToGuess}`);
+    initGame();*/
+	hideWiews()
+	showEndScreen(false, wordToGuess)
   }
 }
+
+//boolean funcion win/lose
+function showEndScreen(isWinner, word) {
+	const win = document.querySelector('#win');
+	const lose = document.querySelector('#lose');
+	if (isWinner) {
+		document.querySelector('#win').classList.remove('hidden');
+    	document.querySelector('#lose').classList.add('hidden');
+	} else  {
+		document.querySelector('#lose').classList.remove('hidden');
+    	document.querySelector('#win').classList.add('hidden');
+		
+	} 
+	// Visa det vinnande ordet om det finns
+    //if (!isWinner && word) {
+    //todo använd i game history istället
+	 //   lose.textContent = `Tyvärr, ordet var: ${word}`;
+   // }
+}
+function hideWiews() {
+	const bodyStart = document.querySelector('#body-start'); 
+	const bodyGame = document.querySelector('#body-game'); 
+	const bodyScore = document.querySelector('#body-score');
+	document.querySelector('#body-game').classList.add('hide');
+	document.querySelector('#body-score').classList.add('hide');
+	document.querySelector('#body-start').classList.add('hide');
+}
+
 
 // Update Word Display
 function updateWordDisplay() {
@@ -78,6 +115,8 @@ function updateWordDisplay() {
     .split("")
     .map((letter) => (guessedLetters.includes(letter) ? letter : "_"))
     .join(" ");
+	console.log('word display: ', guessedLetters);
+	
 }
 
 // Update Incorrect Guesses
