@@ -41,7 +41,7 @@ function initGame() {
 
 // Get Random Word
 function getRandomWord() {
-  return wordList[Math.floor(Math.random() * wordList.length)].toUpperCase();
+  return words[Math.floor(Math.random() * words.length)].toUpperCase();
 }
 
 // Handle Guess
