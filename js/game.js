@@ -8,6 +8,10 @@ const guessInput = document.getElementById("guess-input");
 const guessButton = document.getElementById("guess-btn");
 const spelaIgenBtn = document.getElementById("spela-igen-btn");
 const visaPoangBtn = document.getElementById("visa-poang-btn");
+const hangmanFigure = document.querySelector(".hangman-figure");
+
+// Hangman parts
+
 const hangmanParts = [
   document.getElementById("head"),
   document.getElementById("body"),
@@ -21,7 +25,7 @@ const hangmanParts = [
 let wordToGuess = ''; 
 let guessedLetters = [];
 let incorrectGuesses = []; 
-const maxIncorrectGuesses = 6;
+const maxIncorrectGuesses = hangmanParts.length;
 
 // Initialize Game
 function initGame() {
@@ -31,11 +35,13 @@ function initGame() {
   updateWordDisplay();
   updateIncorrectGuesses();
   resetHangman();
+  guessInput.disabled = false;
+  guessButton.disabled = false;
 }
 
 // Get Random Word
 function getRandomWord() {
-  return wordList[Math.floor(Math.random() * wordList.length)];
+  return words[Math.floor(Math.random() * words.length)].toUpperCase();
 }
 
 // Handle Guess
@@ -55,22 +61,58 @@ function handleGuess() {
 
   if (wordToGuess.includes(letter)) {
     guessedLetters.push(letter);
+	console.log('gissade rätt');
+	
   } else {
     incorrectGuesses.push(letter);
     revealHangmanPart();
+	console.log('gissade fel', wordToGuess, letter);
+	
   }
 
   updateWordDisplay();
   updateIncorrectGuesses();
 
   if (checkWin()) {
-    showCustomDialog("Grattis! Du gissade ordet!");
-    initGame();
+    /*showCustomDialog("Grattis! Du gissade ordet!");
+    initGame();*/
+	hideWiews()
+	showEndScreen(true, wordToGuess)
   } else if (incorrectGuesses.length >= maxIncorrectGuesses) {
-    showCustomDialog(`Du förlorade! Ordet var: ${wordToGuess}`);
-    initGame();
+    /*showCustomDialog(`Du förlorade! Ordet var: ${wordToGuess}`);
+    initGame();*/
+	hideWiews()
+	showEndScreen(false, wordToGuess)
   }
 }
+
+//boolean funcion win/lose
+function showEndScreen(isWinner, word) {
+	const win = document.querySelector('#win');
+	const lose = document.querySelector('#lose');
+	if (isWinner) {
+		document.querySelector('#win').classList.remove('hidden');
+    	document.querySelector('#lose').classList.add('hidden');
+	} else  {
+		document.querySelector('#lose').classList.remove('hidden');
+    	document.querySelector('#win').classList.add('hidden');
+		
+	} 
+	// Visa det vinnande ordet om det finns
+    //if (!isWinner && word) {
+    //todo använd i game history istället
+	 //   lose.textContent = `Tyvärr, ordet var: ${word}`;
+   // }
+}
+function hideWiews() {
+	const bodyStart = document.querySelector('#body-start'); 
+	const bodyGame = document.querySelector('#body-game'); 
+	const bodyScore = document.querySelector('#body-score');
+	document.querySelector('#body-game').classList.add('hide');
+	document.querySelector('#body-score').classList.add('hide');
+	document.querySelector('#body-start').classList.add('hide');
+}
+
 
 // Update Word Display
 function updateWordDisplay() {
@@ -78,6 +120,8 @@ function updateWordDisplay() {
     .split("")
     .map((letter) => (guessedLetters.includes(letter) ? letter : "_"))
     .join(" ");
+	console.log('word display: ', guessedLetters);
+	
 }
 
 // Update Incorrect Guesses
@@ -119,38 +163,49 @@ function showCustomDialog(message) {
   });
 }
 
-  
-  // input and button
- document.getElementById('guess-input').disabled = false;
- document.getElementById('guess-btn').disabled = false;
- document.getElementById('guess-input').value = '';  // Clear the input field
- 
+  // Save Game Result
 
- //Mickan lagt till för att spara ner allt till score. 
- function saveGameResult(didWin) 
- {
-  // Hämta spelarens namn från start-sidan
-  const playerName = localStorage.getItem('playerName');
-
+  //Mickan lagt till för att spara ner allt till score.
+function saveGameResult(didWin) {
+	// Hämta spelarens namn från start-sidan
+  const playerName = localStorage.getItem("playerName") || "Spelare"; // Fallback if no name
   // Skapa resultatobjektet
-  const result = 
-  {
-      name: playerName,  //hämtar namn från start
-      incorrectGuesses: incorrectGuesses.length,
-      wordLength: wordToGuess.length,
-      getTime: new Date().toISOString(),
-      guessedCorrectly: didWin,
+  const result = {
+    name: playerName,//hämtar namn från start
+    incorrectGuesses: incorrectGuesses.length,
+    wordLength: wordToGuess.length,
+    time: new Date().toISOString(),
+    guessedCorrectly: didWin,
   };
-
-  // Hämta tidigare resultat från localStorage
-  const gameResults = JSON.parse(localStorage.getItem('gameResults')) || [];
+ // Hämta tidigare resultat från localStorage
+  const gameResults = JSON.parse(localStorage.getItem("gameResults")) || [];
   gameResults.push(result);
-  localStorage.setItem('gameResults', JSON.stringify(gameResults));
+  localStorage.setItem("gameResults", JSON.stringify(gameResults));
 }
+
+  // input and button
+ //document.getElementById('guess-input').disabled = false;
+ //document.getElementById('guess-btn').disabled = false;
+ //document.getElementById('guess-input').value = '';  // Clear the input field
+ 
 
 
 // Event Listeners
 guessButton.addEventListener("click", handleGuess);
+spelaIgenBtn.addEventListener("click", initGame); // Reset game on 'spela igen'
+visaPoangBtn.addEventListener("click", () => {
+  const results = JSON.parse(localStorage.getItem("gameResults")) || [];
+  const resultsMessage = results
+    .map(
+      (result) =>
+        `${result.name}: ${result.wordLength} bokstäver, ${
+          result.incorrectGuesses
+        } fel (${result.guessedCorrectly ? "Vann" : "Förlorade"})`
+    )
+    .join("\n");
+
+  showCustomDialog(resultsMessage || "Inga resultat att visa ännu.");
+});
 
 // Start Game
 initGame();

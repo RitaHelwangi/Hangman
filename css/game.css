@@ -1,9 +1,5 @@
 /* Game View */
 
-#body-game {
-  display: none;
-}
-
 #game-view {
   display: flex;
   flex-direction: column;
@@ -16,6 +12,9 @@
   max-width: 600px;
   margin: 50px auto 0;
   color: #fff;
+}
+.hide {
+  display: none;
 }
 
 .game-info {
@@ -66,17 +65,7 @@ button {
 
 button:hover {
   background-color: #218838;
-}
-
-#spela-igen-btn,
-#visa-poang-btn {
-  margin: 10px;
-  background-color: #007bff;
-}
-
-#spela-igen-btn:hover,
-#visa-poang-btn:hover {
-  background-color: #0056b3;
+  transform: scale(1.05);
 }
 
 .game-actions {
