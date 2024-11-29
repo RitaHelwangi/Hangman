@@ -33,15 +33,18 @@ function laggTillResultat(result)
             second: "2-digit",
         });
 
+        //hämta avatar-bild från start
+        const avatarName = player.avatar || localStorage.getItem("selectedAvatar");
+
         const resultItem = document.createElement('div');
         resultItem.classList.add('result-item');
         resultItem.innerHTML = `
             <div class="column">
-                <img src="img/${player.avatar}.png" alt="${player.avatar}" style="width: 50px; height: 50px;">
+                <img src="img/${avatarName}.png" alt="${avatarName}" class="clickable-image" />
             </div>
             <div class="column">${player.name}</div>
             <div class="column">${player.incorrectGuesses}</div>
-            <div class="column">${player.wordLength}</div>
+            <div class="column">${result.wordLength}</div>
             <div class="column">${new Date(player.time).toLocaleString()}</div>
             <div class="column">${player.guessedCorrectly ? 'Vann' : 'Förlorade'}</div>`;
         resultContainer.appendChild(resultItem);
@@ -66,6 +69,7 @@ document.getElementById('time-button').addEventListener('click', () =>
     const sortedResults = gameResults.sort((a, b) => new Date(b.time) - new Date(a.time));
     laggTillResultat(sortedResults);
 });
+
 
 
 
