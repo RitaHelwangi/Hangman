@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { words } from "./svenska-ord.js";
 
 
@@ -210,7 +209,6 @@ visaPoangBtn.addEventListener("click", () => {
 
 // Start Game
 initGame();
-=======
 let selectedParts = {
     head: ''
 }
@@ -266,4 +264,3 @@ document.getElementById('start-game').addEventListener('click', function() {
     console.log(`Välkomna, ${playerName}! Startar spel...`)
     console.log(`Din Hangman: ${selectedParts.head}`)
 })
->>>>>>> 1031dbe629a11edc4be6ecbcacaaa0d22e9b74b8
