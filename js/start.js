@@ -48,15 +48,8 @@ function checkFinishButton() {
 document.getElementById('finish').addEventListener('click', function () {
     const playerName = document.getElementById('player-name').value.trim();
     if (playerName && selectedAvatar.head && selectedAvatar.difficulty) {
-<<<<<<< HEAD
         // Store the player's name in localStorage.
-=======
-
-        //för att lägga in namn, till game/score
->>>>>>> 0c5f9d01e629839373b22183596d633eabf68637
         localStorage.setItem('playerName', playerName);
-        // Spara spelarens avatarval i localStorage
-        localStorage.setItem('playerAvatar', selectedAvatar.head);
 
         // Display the confirmation message.
         document.getElementById('game-message').innerHTML = `
@@ -96,19 +89,10 @@ document.getElementById('start-game').addEventListener('click', function () {
         return;
     }
 
-<<<<<<< HEAD
     // Log player details and start the game.
     console.log(`Välkommen: ${playerName}! Spelet startar...`);
     console.log(`Du har valt Avatar: ${selectedAvatar.head}`);
     console.log(`Du har valt nivå: ${selectedAvatar.difficulty}`);
-=======
-    // Show player's name, avatar and level when start game.
-    console.log(`Välkommen: ${playerName}! Spelet startar...`)
-    console.log(`Du har valt Avatar: ${selectedAvatar.head}`)
-    console.log(`Du har valt nivå: ${selectedAvatar.difficulty}`)
-    //window.location.href = "start.html"
-})
->>>>>>> 0c5f9d01e629839373b22183596d633eabf68637
 
     // Switch to the game page.
     goToPage(2);
