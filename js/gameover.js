@@ -75,3 +75,4 @@ document.querySelector('#visa-poang-btn').addEventListener('click', function() {
 	document.querySelector('#body-score').classList.remove('hide');
 	
 });
+
