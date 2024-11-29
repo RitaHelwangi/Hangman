@@ -1,38 +1,36 @@
 /* Game View */
-body {
-  font-family: "Indie Flower", sans-serif;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
 
 #game-view {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  background-color: #444;
   padding: 20px;
+  border-radius: 10px;
+  width: 80%;
   max-width: 600px;
-  margin: auto;
+  margin: 50px auto 0;
+  color: #fff;
 }
-
-.hide{
-	display: none;
+.hide {
+  display: none;
 }
 
 .game-info {
   text-align: center;
+  margin-bottom: 20px;
 }
 
-h2 {
+.game-info h2 {
   font-size: 2rem;
   margin-bottom: 10px;
 }
 
 #word-display {
   font-size: 2rem;
-  letter-spacing: 5px;
-  margin: 20px 0;
+  letter-spacing: 10px;
+  margin: 10px 0;
 }
 
 #incorrect-guesses {
@@ -43,14 +41,15 @@ h2 {
 label {
   font-size: 1rem;
   margin-top: 10px;
+  display: block;
 }
 
-input {
+#guess-input {
   font-size: 1rem;
-
   text-align: center;
   margin: 10px;
   padding: 5px;
+  width: 50px;
 }
 
 button {
@@ -61,13 +60,30 @@ button {
   border: none;
   cursor: pointer;
   margin-top: 10px;
+  border-radius: 5px;
 }
 
 button:hover {
   background-color: #218838;
+  transform: scale(1.05);
+}
+
+.game-actions {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
 }
 
 /* hangman figure */
+#hangman-figure-section {
+  margin-top: 30px;
+}
+
+.hangman-figure {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 
 /* Hide figure */
 #hangman-figure-section .hangman-figure path,
@@ -96,6 +112,7 @@ button:hover {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
+  text-align: center;
 }
 
 .custom-dialog button {
@@ -105,6 +122,7 @@ button:hover {
   background-color: #4caf50;
   color: white;
   border: none;
+  border-radius: 5px;
 }
 
 .custom-dialog button:hover {
