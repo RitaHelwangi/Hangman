@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,16 +8,10 @@
     <link rel="stylesheet" href="css/game.css" />
     <link rel="stylesheet" href="css/gameover.css" />
     <link rel="stylesheet" href="css/score.css" />
-    <link rel="stylesheet" href="css/reset.css" />
-
-    <script type="module" src="js/start.js"></script>
-    <script type="module" src="js/game.js"></script>
-    <script type="module" src="js/app.js"></script>
-    <script type="module" src="js/gameover.js"></script>
-    <script type="module" src="js/score.js"></script>
-	<script type="module" src="js/svenska-ord.js"></script>
+    <link rel="stylesheet" href="css/reset.css" /> 
   </head>
   <body>
+    <!-- Nav menu -->
     <nav>
       <ul>
         <li id="start-flik">Startsida</li>
@@ -25,7 +19,8 @@
         <li id="score-flik">Dina poäng</li>
       </ul>
     </nav>
-    <!-----------------Start----------------->
+
+    <!-- *************** Page 1 : Start *************** -->
     <div id="body-start" class="hide">
       <div class="start-page">
         <div class="welcome-text">
@@ -34,7 +29,7 @@
         </div>
         <!-- Player info -->
         <div class="player-info">
-          <label for="player-name"> Ange ditt namn: </label>
+          <label for="player-name">Ange ditt namn:</label>
           <input type="text" id="player-name" placeholder="Ditt namn" />
         </div>
         <!-- Choose your Avatar -->
@@ -111,7 +106,7 @@
       </dialog>
     </div>
 
-    <!-- Game View -->
+    <!-- *************** Page 2 : Game View *************** -->
     <div id="body-game" class="hide">
       <section id="game-view">
         <div class="game-info">
@@ -189,9 +184,8 @@
       </section>
     </div>
 
-    <!--------POÄNGVY----------->
-
-    <!------Gubbar från spelet-->
+    <!-- *************** Page 3 : Score *************** -->
+    <!--Gubbar från spelet-->
     <div id="body-score" class="hide">
       <div class="option" id="head">
         <img
@@ -237,37 +231,33 @@
           data-part="Avatar-wizard"
         />
       </div>
-
       <!-- Poängvy -->
       <div id="score-container">
         <h1>Poängvy</h1>
         <div class="result-lista" id="result-lista">
-          <!--Läggs i JavaScript-filen
-			
-			<div class="column">
-				<p class="gamer"><strong>Spelare</strong></p>
-				<p id="result-name"></p>
-			</div>
-			<div class="column">
-				<p class="gamer"><strong>Felaktiga Gissningar</strong></p>
-				<p id="result-guess"></p>
-			</div>
-			<div class="column">
-				<p class="gamer"><strong>Ordets Längd</strong></p>
-				<p id="result-length"></p> 
-			</div>
-			<div class="column">
-				<p class="gamer"><strong>Tid</strong></p>
-				<p id="result-time"></p> 
-			</div>
-			<div class="column">
-				<p class="gamer"><strong>Resultat</strong></p>
-				<p id="result-game"></p>  
-			</div>-->
+          <div class="column">
+            <p class="gamer"><strong>Spelare</strong></p>
+            <p id="result-name"></p>
+          </div>
+          <div class="column">
+            <p class="gamer"><strong>Felaktiga Gissningar</strong></p>
+            <p id="result-guess"></p>
+          </div>
+          <div class="column">
+            <p class="gamer"><strong>Ordets Längd</strong></p>
+            <p id="result-length"></p> 
+          </div>
+          <div class="column">
+            <p class="gamer"><strong>Tid</strong></p>
+            <p id="result-time"></p> 
+          </div>
+          <div class="column">
+            <p class="gamer"><strong>Resultat</strong></p>
+            <p id="result-game"></p>  
+          </div>
         </div>
       </div>
-
-      <!-----Knappar-poäng---->
+      <!-- Knappar-poäng -->
       <div id="button-container">
         <button id="sort-button">Sortera efter gissningar</button>
         <button id="time-button">Sortera efter datum</button>
@@ -275,8 +265,7 @@
       </div>
     </div>
 
-    <!-----------Win/lose------------>
-
+    <!-- *************** Page 4 : Win & lose *************** -->
     <div class="WL-buttons">
       <button class="show-winner-btn">win</button>
       <button class="show-loser-btn">lose</button>
@@ -308,5 +297,13 @@
         <button>Spela igen</button>
       </div>
     </section>
+
+    <!-- JS link -->
+    <script type="module" src="js/start.js"></script>
+    <script type="module" src="js/game.js"></script>
+    <script type="module" src="js/app.js"></script>
+    <script type="module" src="js/gameover.js"></script>
+    <script type="module" src="js/score.js"></script>
+    <script type="module" src="js/svenska-ord.js"></script>
   </body>
 </html>
