@@ -5,13 +5,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #444;
+  background-color: #1a1a1a;
   padding: 20px;
   border-radius: 10px;
   width: 80%;
   max-width: 600px;
   margin: 50px auto 0;
   color: #fff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 .hide {
   display: none;
@@ -31,6 +32,12 @@
   font-size: 2rem;
   letter-spacing: 10px;
   margin: 10px 0;
+  color: #fff;
+}
+
+.enter-letter {
+  color: #fff;
+  font-size: 1.4em;
 }
 
 #incorrect-guesses {
@@ -39,7 +46,7 @@
 }
 
 label {
-  font-size: 1rem;
+  font-size: 1.3rem;
   margin-top: 10px;
   display: block;
 }
@@ -49,7 +56,7 @@ label {
   text-align: center;
   margin: 10px;
   padding: 5px;
-  width: 50px;
+  border-radius: 10px;
 }
 
 button {

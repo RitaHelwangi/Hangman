@@ -39,7 +39,7 @@
         </div>
         <!-- Choose your Avatar -->
         <h2>Välj din Avatar</h2>
-        <div class="option" id="head">
+        <div class="option" id="headStart">
           <img
             src="img/Avatar-alien.png"
             alt="Avatar-alien"
@@ -92,7 +92,7 @@
         </div>
         <!-- Level buttons -->
         <h2>Välj din Nivå</h2>
-        <div class="difficulty-buttons">
+        <div class="difficulty-buttons" id="difficulty">
           <button id="easy">Lätt</button>
           <button id="medium">Medel</button>
           <button id="hard">Svårt</button>
@@ -117,7 +117,7 @@
         <div class="game-info">
           <h2>Gissa ordet:</h2>
           <p id="word-display">_ _ _ _ _ _ _ _ _ _</p>
-          <p>Gissade bokstäver: <span id="incorrect-guesses"></span></p>
+          <p class="enter-letter">Gissade bokstäver: <span id="incorrect-guesses"></span></p>
           <label for="guess-input">Ange en bokstav:</label>
           <input
             type="text"
@@ -193,7 +193,7 @@
 
     <!------Gubbar från spelet-->
     <div id="body-score" class="hide">
-      <div class="option" id="head">
+      <div class="option" id="headScore">
         <img
           src="img/Avatar-alien.png"
           alt="Avatar-alien"
@@ -322,3 +322,20 @@
 </section>
 </body>
 </html>
+
+    <section id="win" class="hidden">
+      <div class="winner">
+        <h1 class="congrats">Grattis!</h1>
+        <p class="wword">Du gissade ordet!</p>
+        <img src="img/IMG_2830.png" alt="Happy Hangman" />
+      </div>
+      <div class="game-history">
+        <p>Ordet är:</p>
+        <p>Antal gissningar:</p>
+        <button>Dina poäng</button>
+        <button>Spela igen</button>
+      </div>
+    </section>
+  </body>
+</html>
+
