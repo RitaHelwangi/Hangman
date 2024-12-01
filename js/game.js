@@ -61,24 +61,58 @@ function handleGuess() {
 
   if (wordToGuess.includes(letter)) {
     guessedLetters.push(letter);
+	console.log('gissade rätt');
+	
   } else {
     incorrectGuesses.push(letter);
     revealHangmanPart();
+	console.log('gissade fel', wordToGuess, letter);
+	
   }
 
   updateWordDisplay();
   updateIncorrectGuesses();
 
   if (checkWin()) {
-	saveGameResult(true);
-    showCustomDialog("Grattis! Du gissade ordet!");
-    initGame();
+    /*showCustomDialog("Grattis! Du gissade ordet!");
+    initGame();*/
+	hideWiews()
+	showEndScreen(true, wordToGuess)
   } else if (incorrectGuesses.length >= maxIncorrectGuesses) {
-	saveGameResult(false);
-    showCustomDialog(`Du förlorade! Ordet var: ${wordToGuess}`);
-    initGame();
+    /*showCustomDialog(`Du förlorade! Ordet var: ${wordToGuess}`);
+    initGame();*/
+	hideWiews()
+	showEndScreen(false, wordToGuess)
   }
 }
+
+//boolean funcion win/lose
+function showEndScreen(isWinner, word) {
+	const win = document.querySelector('#win');
+	const lose = document.querySelector('#lose');
+	if (isWinner) {
+		document.querySelector('#win').classList.remove('hidden');
+    	document.querySelector('#lose').classList.add('hidden');
+	} else  {
+		document.querySelector('#lose').classList.remove('hidden');
+    	document.querySelector('#win').classList.add('hidden');
+		
+	} 
+	// Visa det vinnande ordet om det finns
+    //if (!isWinner && word) {
+    //todo använd i game history istället
+	 //   lose.textContent = `Tyvärr, ordet var: ${word}`;
+   // }
+}
+function hideWiews() {
+	const bodyStart = document.querySelector('#body-start'); 
+	const bodyGame = document.querySelector('#body-game'); 
+	const bodyScore = document.querySelector('#body-score');
+	document.querySelector('#body-game').classList.add('hide');
+	document.querySelector('#body-score').classList.add('hide');
+	document.querySelector('#body-start').classList.add('hide');
+}
+
 
 // Update Word Display
 function updateWordDisplay() {
@@ -86,6 +120,8 @@ function updateWordDisplay() {
     .split("")
     .map((letter) => (guessedLetters.includes(letter) ? letter : "_"))
     .join(" ");
+	console.log('word display: ', guessedLetters);
+	
 }
 
 // Update Incorrect Guesses
@@ -173,3 +209,58 @@ visaPoangBtn.addEventListener("click", () => {
 
 // Start Game
 initGame();
+let selectedParts = {
+    head: ''
+}
+
+// When click on the image.
+const clickableImages = document.querySelectorAll('.clickable-image')
+
+clickableImages.forEach(img => {
+    img.addEventListener('click', function() {
+        const part = this.getAttribute('data-part')  // Get selected value from data-part.
+
+        // Update the values ​​of the selected part.
+        const partType = this.closest('.option').id  // Find the ID of the selected part (ex. head).
+        selectedParts[partType] = part
+
+        // Remove selection from other images & add selection to the clicked image.
+        document.querySelectorAll(`#${partType} .clickable-image`).forEach(image => {
+            image.classList.remove('selected')  // Cancel Selection
+        })
+        this.classList.add('selected')  // Select image
+
+        // Show selected Hangman.
+        displayHangmanCharacter()
+    })
+})
+
+// Function to display selected Hangman.
+function displayHangmanCharacter() {
+    if (selectedParts.head) {
+        const hangmanCharacter = `<img src="img/${selectedParts.head}.png" alt="${selectedParts.head}">`
+        document.getElementById('hangman-character').innerHTML = hangmanCharacter
+    }
+}
+
+// Game start function when pressing the "Start Game" button.
+document.getElementById('start-game').addEventListener('click', function() {
+    // Get player name
+    const playerName = document.getElementById('player-name').value.trim()
+
+    // Check if the player has entered their name.
+    if (!playerName) {
+        alert("Ange ditt namn!")
+        return
+    }
+
+    // Check if the player has selected Hangman.
+    if (!selectedParts.head) {
+        alert("Välj Hangman!")
+        return
+    }
+
+    // If the player enters their name & selects Hangman
+    console.log(`Välkomna, ${playerName}! Startar spel...`)
+    console.log(`Din Hangman: ${selectedParts.head}`)
+})
