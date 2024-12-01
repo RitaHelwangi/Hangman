@@ -87,7 +87,7 @@ function handleGuess() {
 }
 
 //boolean funcion win/lose
-function showEndScreen(isWinner, word) {
+function showEndScreen(isWinner) {
 	const win = document.querySelector('#win');
 	const lose = document.querySelector('#lose');
 	if (isWinner) {
@@ -98,19 +98,19 @@ function showEndScreen(isWinner, word) {
     	document.querySelector('#win').classList.add('hidden');
 		
 	} 
-	// Visa det vinnande ordet om det finns
-    //if (!isWinner && word) {
-    //todo använd i game history istället
-	 //   lose.textContent = `Tyvärr, ordet var: ${word}`;
-   // }
+	
 }
 function hideWiews() {
 	const bodyStart = document.querySelector('#body-start'); 
 	const bodyGame = document.querySelector('#body-game'); 
 	const bodyScore = document.querySelector('#body-score');
+	const win = document.querySelector('#win');
+	const lose = document.querySelector('#lose');
 	document.querySelector('#body-game').classList.add('hide');
 	document.querySelector('#body-score').classList.add('hide');
 	document.querySelector('#body-start').classList.add('hide');
+	win.classList.add('hidden');
+	lose.classList.add('hidden');
 }
 
 
@@ -209,3 +209,5 @@ visaPoangBtn.addEventListener("click", () => {
 
 // Start Game
 initGame();
+
+export {updateIncorrectGuesses} 

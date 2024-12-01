@@ -1,3 +1,5 @@
+import { updateIncorrectGuesses } from './game.js';
+
 
 //toggle vy
 
@@ -76,3 +78,61 @@ document.querySelector('#visa-poang-btn').addEventListener('click', function() {
 	
 });
 
+// sriva ut ordet + antal gissningar i win/lose
+
+// Skapa ett div-element för spelets uppdateringar
+//const gameUpdate = document.createElement('div');
+//document.querySelector('.game-update')
+//gameUpdate.classList.add('game-update'); // Ändrat till classList.add för korrekt användning
+
+// Skapa ett p-element för att visa meddelandet
+//const p = document.createElement('p');
+
+// Sätt textinnehållet till att visa ordet och antalet felaktiga gissningar
+//p.innerText = `Ordet var: ${word}. Du gissade fel ${incorrectGuesses} gånger.`;
+
+// Lägg till p-elementet i gameUpdate-diven
+//gameUpdate.appendChild(p);
+
+
+/*const gameUpdate = document.createElement('div');
+gameUpdate.classList('game-update')
+const p = document.createElement('p')
+p.innerText = `textContent = Ordet var: ${word} Du gissade fel ${incorrectGuesses} gånger.`;
+
+gameUpdate.appendChild(p);*/
+
+
+// Skapa en övergripande div för spelets uppdateringar
+///const gameContainer = document.createElement('div');
+//gameContainer.classList.add('game-container'); // Behöver för att kunna styla hela behållaren
+
+// Skapa ett div-element för spelets uppdateringar
+//const gameUpdate = document.createElement('div');
+//gameUpdate.classList.add('game-update'); // Korrekt användning av classList.add
+
+const gameUpdate = document.querySelector('.game-update')
+
+// Skapa ett p-element för att visa meddelandet
+const theWord = document.createElement('p');
+const theGuess = document.createElement('p');
+let wordToGuess = ''; 
+let incorrectGuesses = []; 
+incorrectGuesses.push('felaktigGissning');
+// Sätt textinnehållet till att visa ordet och antalet felaktiga gissningar
+theWord.innerText = `Ordet var: ${wordToGuess}` ;
+theGuess.innerText = `Antal gissningar ${incorrectGuesses.length}`;
+
+// Lägg till p-elementet i gameUpdate-diven
+gameUpdate.appendChild(theWord);
+gameUpdate.appendChild(theGuess)
+console.log('gameUpdate:', gameUpdate);
+console.log('theWord:', theWord.innerText);
+console.log('theGuess:', theGuess.innerText);
+
+// Lägg till gameUpdate-diven i gameContainer
+//gameContainer.appendChild(gameUpdate);
+
+//variabler
+	  console.log(incorrectGuesses); // Använd variabeln
+	  

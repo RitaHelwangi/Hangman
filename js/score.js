@@ -75,3 +75,20 @@ document.getElementById('time-button').addEventListener('click', () =>
     localStorage.removeItem("gameResults");
     laggTillResultat([]); // Visa en tom lista
 }); */
+
+
+
+document.querySelector('#spela-igen-btn').addEventListener('click', function() {
+	hideWiews()
+	document.querySelector('#body-game').classList.remove('hide');
+	
+});
+
+function hideWiews() {
+	const bodyStart = document.querySelector('#body-start'); 
+	const bodyGame = document.querySelector('#body-game'); 
+	const bodyScore = document.querySelector('#body-score');
+	document.querySelector('#body-game').classList.add('hide');
+	document.querySelector('#body-score').classList.add('hide');
+	document.querySelector('#body-start').classList.add('hide');
+}
