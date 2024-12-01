@@ -104,13 +104,13 @@ function hideWiews() {
 	const bodyStart = document.querySelector('#body-start'); 
 	const bodyGame = document.querySelector('#body-game'); 
 	const bodyScore = document.querySelector('#body-score');
-	const win = document.querySelector('#win');
-	const lose = document.querySelector('#lose');
+	//const win = document.querySelector('#win');
+	//const lose = document.querySelector('#lose');
 	document.querySelector('#body-game').classList.add('hide');
 	document.querySelector('#body-score').classList.add('hide');
 	document.querySelector('#body-start').classList.add('hide');
-	win.classList.add('hidden');
-	lose.classList.add('hidden');
+	//win.classList.add('hidden');
+	//lose.classList.add('hidden');
 }
 
 

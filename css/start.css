@@ -36,11 +36,7 @@
 .hide {
   display: none;
 }
-#body-start {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
+
 
 /* Img Avatar */
 .option img {

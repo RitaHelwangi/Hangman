@@ -111,37 +111,20 @@ gameUpdate.appendChild(p);*/
 //const gameUpdate = document.createElement('div');
 //gameUpdate.classList.add('game-update'); // Korrekt användning av classList.add
 
-const gameUpdate = document.querySelector('.game-update')
+//dela upp win/lose
 
-// Skapa ett p-element för att visa meddelandet
-const theWord = document.createElement('p');
-const theGuess = document.createElement('p');
-let wordToGuess = ''; 
-let incorrectGuesses = []; 
-incorrectGuesses.push('felaktigGissning');
-checkWin()
+const theWordLose = document.createElement('p');
+const theGuessLose = document.createElement('p');
+const theWordWin = document.createElement('p');
+const theGuessWin = document.createElement('p');
 
-// Sätt textinnehållet till att visa ordet och antalet felaktiga gissningar
-//wordToGuess = 'exempelord'; // Sätt ordet som ska gissas
-//theWord.innerText = `Ordet var: ${wordToGuess}`; // Uppdatera text
+theWordLose.innerText = `Ordet var: ${wordToGuess}`;
+theGuessLose.innerText = `Antal gissningar ${incorrectGuesses.length}`;
 
-theWord.innerText = `Ordet var: ${wordToGuess}` ;
-theGuess.innerText = `Antal gissningar ${incorrectGuesses.length}`;
+theWordWin.innerText = `Ordet var: ${wordToGuess}`;
+theGuessWin.innerText = `Antal gissningar ${incorrectGuesses.length}`;
 
-// Lägg till p-elementet i gameUpdate-diven
-gameUpdate.appendChild(theWord);
-gameUpdate.appendChild(theGuess)
-console.log('gameUpdate:', gameUpdate);
-console.log('theWord:', theWord.innerText);
-console.log('theGuess:', theGuess.innerText);
-
-// Lägg till gameUpdate-diven i gameContainer
-//gameContainer.appendChild(gameUpdate);
-
-//variabler
-	  console.log(incorrectGuesses); // Använd variabeln
-	  
-// Check Win Condition
-function checkWin() {
-	return wordToGuess.split("").every((letter) => guessedLetters.includes(letter));
-  }
+gameUpdateLose.appendChild(theWordLose);
+gameUpdateLose.appendChild(theGuessLose);
+gameUpdateWin.appendChild(theWordWin);
+gameUpdateWin.appendChild(theGuessWin);
