@@ -1,5 +1,5 @@
 // Declare the selectedAvatar variable.
-let selectedAvatar = { head: '', difficulty: '' };
+let selectedAvatar = { headStart: '', difficulty: '' };
 
 // Add event listeners to all clickable avatar images.
 document.querySelectorAll('.clickable-image').forEach(img => {
