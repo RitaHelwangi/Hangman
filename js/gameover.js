@@ -1,4 +1,4 @@
-import { updateIncorrectGuesses } from './game.js';
+
 import { words } from "./svenska-ord.js";
 
 
@@ -57,13 +57,13 @@ function hideWiews() {
 	const bodyStart = document.querySelector('#body-start'); 
 	const bodyGame = document.querySelector('#body-game'); 
 	const bodyScore = document.querySelector('#body-score');
-	//const win = document.querySelector('#win');
-	//const lose = document.querySelector('#lose');
+	const win = document.querySelector('#win');
+	const lose = document.querySelector('#lose');
 	bodyStart.classList.add('hide')
 	bodyGame.classList.add('hide')
 	bodyScore.classList.add('hide')
-	//win.classList.add('hidden');
-	//lose.classList.add('hidden');
+	win.classList.add('hidden');
+	lose.classList.add('hidden');
 	
 }
 
@@ -82,36 +82,6 @@ document.querySelector('#visa-poang-btn').addEventListener('click', function() {
 
 // sriva ut ordet + antal gissningar i win/lose
 
-// Skapa ett div-element för spelets uppdateringar
-//const gameUpdate = document.createElement('div');
-//document.querySelector('.game-update')
-//gameUpdate.classList.add('game-update'); // Ändrat till classList.add för korrekt användning
-
-// Skapa ett p-element för att visa meddelandet
-//const p = document.createElement('p');
-
-// Sätt textinnehållet till att visa ordet och antalet felaktiga gissningar
-//p.innerText = `Ordet var: ${word}. Du gissade fel ${incorrectGuesses} gånger.`;
-
-// Lägg till p-elementet i gameUpdate-diven
-//gameUpdate.appendChild(p);
-
-
-/*const gameUpdate = document.createElement('div');
-gameUpdate.classList('game-update')
-const p = document.createElement('p')
-p.innerText = `textContent = Ordet var: ${word} Du gissade fel ${incorrectGuesses} gånger.`;
-
-gameUpdate.appendChild(p);*/
-
-
-// Skapa en övergripande div för spelets uppdateringar
-///const gameContainer = document.createElement('div');
-//gameContainer.classList.add('game-container'); // Behöver för att kunna styla hela behållaren
-
-// Skapa ett div-element för spelets uppdateringar
-//const gameUpdate = document.createElement('div');
-//gameUpdate.classList.add('game-update'); 
 
 //dela upp win/lose
 const gameUpdateLose = document.querySelector('.game-update-lose');
@@ -121,13 +91,14 @@ const theGuessLose = document.createElement('p');
 const theWordWin = document.createElement('p');
 const theGuessWin = document.createElement('p');
 let wordToGuess = ''; 
-wordToGuess = getRandomWord();
 let incorrectGuesses = []; 
-//updateWordDisplay();
-updateIncorrectGuesses();
+const incorrectGuessesDisplay = document.getElementById("incorrect-guesses");
+const wordDisplay = document.getElementById("word-display");
+let guessedLetters = [];
 
+wordToGuess = getRandomWord();
 theWordLose.innerText = `Ordet var: ${wordToGuess}`;
-theGuessLose.innerText = `Antal gissningar ${incorrectGuesses.length}`;
+theGuessLose.innerText = `Antal gissningar: ${incorrectGuesses.length}`;
 
 theWordWin.innerText = `Ordet var: ${wordToGuess}`;
 theGuessWin.innerText = `Antal gissningar ${incorrectGuesses.length}`;
@@ -136,6 +107,14 @@ gameUpdateLose.appendChild(theWordLose);
 gameUpdateLose.appendChild(theGuessLose);
 gameUpdateWin.appendChild(theWordWin);
 gameUpdateWin.appendChild(theGuessWin);
+
+//getRandomWord()
+
+updateWordDisplay()
+updateIncorrectGuesses();
+console.log('Valt ord:', wordToGuess);
+console.log('gissade: ', updateIncorrectGuesses);
+
 
 // Get Random Word
 function getRandomWord() {
@@ -151,12 +130,13 @@ function updateWordDisplay() {
 	  console.log('word display: ', guessedLetters);
 	  
   }
-  
+ 
   // Update Incorrect Guesses
-  /*function updateIncorrectGuesses() {
+function updateIncorrectGuesses() {
 	incorrectGuessesDisplay.textContent = incorrectGuesses.join(", ");
-  } */
+  }
   
+ 
   // Handle Guess
   function handleGuess() {
 	const letter = guessInput.value.toUpperCase();
