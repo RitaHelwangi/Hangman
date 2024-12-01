@@ -119,7 +119,12 @@ const theGuess = document.createElement('p');
 let wordToGuess = ''; 
 let incorrectGuesses = []; 
 incorrectGuesses.push('felaktigGissning');
+checkWin()
+
 // Sätt textinnehållet till att visa ordet och antalet felaktiga gissningar
+//wordToGuess = 'exempelord'; // Sätt ordet som ska gissas
+//theWord.innerText = `Ordet var: ${wordToGuess}`; // Uppdatera text
+
 theWord.innerText = `Ordet var: ${wordToGuess}` ;
 theGuess.innerText = `Antal gissningar ${incorrectGuesses.length}`;
 
@@ -136,3 +141,7 @@ console.log('theGuess:', theGuess.innerText);
 //variabler
 	  console.log(incorrectGuesses); // Använd variabeln
 	  
+// Check Win Condition
+function checkWin() {
+	return wordToGuess.split("").every((letter) => guessedLetters.includes(letter));
+  }
