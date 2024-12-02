@@ -92,19 +92,19 @@ function handleGuess() {
 function showEndScreen(isWinner) {
 	const win = document.querySelector('#win');
 	const lose = document.querySelector('#lose');
-	const gameUpdateLose = document.querySelector('#game-update-lose');
-	const gameUpdateWin = document.querySelector('#game-update-win');
+	//const gameUpdateLose = document.querySelector('#game-update-lose');
+	//const gameUpdateWin = document.querySelector('#game-update-win');
 	if (isWinner) {
 		document.querySelector('#win').classList.remove('hidden');
     	document.querySelector('#lose').classList.add('hidden');
-		document.querySelector('#game-update-win').classList.remove('hidden');
-		document.querySelector('#game-update-lose').classList.add('hidden');
+		//document.querySelector('#game-update-win').classList.remove('hidden');
+		//document.querySelector('#game-update-lose').classList.add('hidden');
 		
 	} else  {
 		document.querySelector('#lose').classList.remove('hidden');
     	document.querySelector('#win').classList.add('hidden');
-		document.querySelector('#game-update-lose').classList.remove('hidden');
-		document.querySelector('#game-update-win').classList.add('hidden');
+		//document.querySelector('#game-update-lose').classList.remove('hidden');
+		//document.querySelector('#game-update-win').classList.add('hidden');
 	} 
 	
 }
