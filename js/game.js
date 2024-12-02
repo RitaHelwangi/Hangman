@@ -77,13 +77,13 @@ function handleGuess() {
     /*showCustomDialog("Grattis! Du gissade ordet!");
     initGame();*/
 	hideWiews()
-  saveGameResult(true);
+  saveGameResult(true, wordToGuess);
 	showEndScreen(true, wordToGuess)
   } else if (incorrectGuesses.length >= maxIncorrectGuesses) {
     /*showCustomDialog(`Du förlorade! Ordet var: ${wordToGuess}`);
     initGame();*/
 	hideWiews()
-  saveGameResult(false);
+  saveGameResult(false, wordToGuess);
 	showEndScreen(false, wordToGuess)
   }
 }
