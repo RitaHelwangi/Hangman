@@ -97,8 +97,8 @@ document.querySelector('#spela-igen-btn-win').addEventListener('click', function
 
 
 //dela upp win/lose
-const gameUpdateLose = document.querySelector('.game-update-lose');
-const gameUpdateWin = document.querySelector('.game-update-win');
+const gameUpdateLose = document.querySelector('#game-update-lose');
+const gameUpdateWin = document.querySelector('#game-update-win');
 const theWordLose = document.createElement('p');
 const theGuessLose = document.createElement('p');
 const theWordWin = document.createElement('p');
