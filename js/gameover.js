@@ -33,27 +33,27 @@ window.addEventListener('load', () => {
 	 const bodyScore = document.querySelector('#body-score'); 
 	 const win = document.querySelector('#win');
 	 const lose = document.querySelector('#lose');  
-	 hideViews()
+	 hideWiews()
 	 bodyStart.classList.remove('hide');    
 	
 
 // Flikar toggla mellan spelvyer
 document.querySelector('#start-flik').addEventListener('click', function() {
-	hideViews()
+	hideWiews()
 	document.querySelector('#body-start').classList.remove('hide');
 });
 });
 document.querySelector('#game-wiew-flik').addEventListener('click', function() {
-	hideViews()
+	hideWiews()
 	document.querySelector('#body-game').classList.remove('hide');
 });
 
 document.querySelector('#score-flik').addEventListener('click', function() {
-	hideViews()
+	hideWiews()
 	document.querySelector('#body-score').classList.remove('hide');
 });
 
-function hideViews() {
+function hideWiews() {
 	const bodyStart = document.querySelector('#body-start'); 
 	const bodyGame = document.querySelector('#body-game'); 
 	const bodyScore = document.querySelector('#body-score');
@@ -68,14 +68,14 @@ function hideViews() {
 }
 
 //spela igen och visa poäng buttons
-document.querySelector('#spela-igen-btn-lose').addEventListener('click', function() {
-	hideViews()
+document.querySelector('#spela-igen-btn').addEventListener('click', function() {
+	hideWiews()
 	document.querySelector('#body-game').classList.remove('hide');
-	initGame()
+	
 });
 	
 document.querySelector('#visa-poang-btn').addEventListener('click', function() {
-	hideViews()
+	hideWiews()
 	document.querySelector('#body-score').classList.remove('hide');
 	
 });
