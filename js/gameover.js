@@ -69,7 +69,7 @@ function hideWiews() {
 
 //spela igen och visa poäng buttons
 document.querySelector('#spela-igen-btn').addEventListener('click', function() {
-	hideViews()
+	hideWiews()
 	document.querySelector('#body-game').classList.remove('hide');
 	
 });
