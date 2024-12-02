@@ -33,27 +33,27 @@ window.addEventListener('load', () => {
 	 const bodyScore = document.querySelector('#body-score'); 
 	 const win = document.querySelector('#win');
 	 const lose = document.querySelector('#lose');  
-	 hideWiews()
+	 hideViews()
 	 bodyStart.classList.remove('hide');    
 	
 
 // Flikar toggla mellan spelvyer
 document.querySelector('#start-flik').addEventListener('click', function() {
-	hideWiews()
+	hideViews()
 	document.querySelector('#body-start').classList.remove('hide');
 });
 });
 document.querySelector('#game-wiew-flik').addEventListener('click', function() {
-	hideWiews()
+	hideViews()
 	document.querySelector('#body-game').classList.remove('hide');
 });
 
 document.querySelector('#score-flik').addEventListener('click', function() {
-	hideWiews()
+	hideViews()
 	document.querySelector('#body-score').classList.remove('hide');
 });
 
-function hideWiews() {
+function hideViews() {
 	const bodyStart = document.querySelector('#body-start'); 
 	const bodyGame = document.querySelector('#body-game'); 
 	const bodyScore = document.querySelector('#body-score');
@@ -71,11 +71,11 @@ function hideWiews() {
 document.querySelector('#spela-igen-btn').addEventListener('click', function() {
 	hideWiews()
 	document.querySelector('#body-game').classList.remove('hide');
-	
+	initGame()
 });
 	
 document.querySelector('#visa-poang-btn').addEventListener('click', function() {
-	hideWiews()
+	hideViews()
 	document.querySelector('#body-score').classList.remove('hide');
 	
 });
@@ -165,3 +165,14 @@ function updateIncorrectGuesses() {
 	  
 	}
 }
+// Initialize Game
+function initGame() {
+	wordToGuess = getRandomWord();
+	guessedLetters = [];
+	incorrectGuesses = [];
+	updateWordDisplay();
+	updateIncorrectGuesses();
+	resetHangman();
+	guessInput.disabled = false;
+	guessButton.disabled = false;
+  }

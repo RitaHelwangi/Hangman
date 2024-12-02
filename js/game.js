@@ -76,12 +76,12 @@ function handleGuess() {
   if (checkWin()) {
     /*showCustomDialog("Grattis! Du gissade ordet!");
     initGame();*/
-	hideWiews()
+	hideViews()
 	showEndScreen(true, wordToGuess)
   } else if (incorrectGuesses.length >= maxIncorrectGuesses) {
     /*showCustomDialog(`Du förlorade! Ordet var: ${wordToGuess}`);
     initGame();*/
-	hideWiews()
+	hideViews()
 	showEndScreen(false, wordToGuess)
   }
 }
