@@ -71,7 +71,7 @@ document.getElementById('time-button').addEventListener('click', () =>
 });
 
 //rensa lista
-/*document.getElementById('clear-results').addEventListener('click', () => {
+/*document.getElementById('rensa-resultat').addEventListener('click', () => {
     localStorage.removeItem("gameResults");
     laggTillResultat([]); // Visa en tom lista
 }); */
