@@ -50,7 +50,7 @@ document.getElementById('finish').addEventListener('click', function () {
     if (playerName && selectedAvatar.head && selectedAvatar.difficulty) {
         // Store the player's name and avatar in localStorage
         localStorage.setItem('playerName', playerName);
-        localStorage.setItem('selectedAvatar', selectedAvatar.head);  
+        localStorage.setItem('selectedAvatar', selectedAvatar.head);
 
         // Display the confirmation message.
         document.getElementById('game-message').innerHTML = `

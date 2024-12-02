@@ -77,11 +77,13 @@ function handleGuess() {
     /*showCustomDialog("Grattis! Du gissade ordet!");
     initGame();*/
 	hideWiews()
+  saveGameResult(true);
 	showEndScreen(true, wordToGuess)
   } else if (incorrectGuesses.length >= maxIncorrectGuesses) {
     /*showCustomDialog(`Du förlorade! Ordet var: ${wordToGuess}`);
     initGame();*/
 	hideWiews()
+  saveGameResult(false);
 	showEndScreen(false, wordToGuess)
   }
 }
@@ -164,23 +166,24 @@ function showCustomDialog(message) {
 }
 
   // Save Game Result
+  function saveGameResult(didWin, word) 
+  {
+    const playerName = localStorage.getItem("playerName") || "Spelare";
+    const selectedAvatar = localStorage.getItem("selectedAvatar") || 'default-avatar';
 
-  //Mickan lagt till för att spara ner allt till score.
-function saveGameResult(didWin) {
-	// Hämta spelarens namn från start-sidan
-  const playerName = localStorage.getItem("playerName") || "Spelare"; // Fallback if no name
-  // Skapa resultatobjektet
-  const result = {
-    name: playerName,//hämtar namn från start
-    incorrectGuesses: incorrectGuesses.length,
-    wordLength: wordToGuess.length,
-    time: new Date().toISOString(),
-    guessedCorrectly: didWin,
-  };
- // Hämta tidigare resultat från localStorage
-  const gameResults = JSON.parse(localStorage.getItem("gameResults")) || [];
-  gameResults.push(result);
-  localStorage.setItem("gameResults", JSON.stringify(gameResults));
+    const result = 
+    {
+        name: playerName,
+        avatar: selectedAvatar,
+        incorrectGuesses: incorrectGuesses.length,
+        wordLength: word.length,
+        time: new Date().toISOString(),
+        guessedCorrectly: didWin,
+    };
+
+    const gameResults = JSON.parse(localStorage.getItem("gameResults")) || [];
+    gameResults.push(result);
+    localStorage.setItem("gameResults", JSON.stringify(gameResults));
 }
 
   // input and button

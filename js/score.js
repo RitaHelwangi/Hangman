@@ -1,13 +1,10 @@
 // Läs in resultaten från localStorage
 const gameResults = JSON.parse(localStorage.getItem("gameResults")) || [];
 
-console.log(gameResults);
-
 // Funktion för att visa resultaten
-function laggTillResultat(result) 
-{
+function laggTillResultat(result) {
     const resultContainer = document.getElementById('result-lista');
-    resultContainer.innerHTML = '';
+    resultContainer.innerHTML = ''; 
 
     // Header-rad
     const headerRow = document.createElement('div');
@@ -21,30 +18,30 @@ function laggTillResultat(result)
         <div class="column"><strong>Resultat</strong></div>`;
     resultContainer.appendChild(headerRow);
 
-    // Lägg till varje spelares resultat
-    result.forEach((player) => 
-    {
-        //hämta avatar-bild från start
-        const avatarName = player.avatar || localStorage.getItem("selectedAvatar");
-
+    result.forEach((player) => {
+        const avatarName = player.avatar || 'default-avatar'; 
         const resultItem = document.createElement('div');
         resultItem.classList.add('result-item');
         resultItem.innerHTML = `
             <div class="column">
-                <img src="img/${avatarName}.png" alt="${avatarName}" class="avatar-image" />
+                <img src="img/${avatarName}.png" alt="${avatarName}" class="avatar-img">
             </div>
             <div class="column">${player.name}</div>
             <div class="column">${player.incorrectGuesses}</div>
             <div class="column">${player.wordLength}</div>
             <div class="column">${new Date(player.time).toLocaleString()}</div>
-            <div class="column">${player.guessedCorrectly ? 'Vann' : 'Förlorade'}</div>`;
+            <div class="column">${player.guessedCorrectly ? 'Vann' : 'Förlorade'}</div>
+        `;
         resultContainer.appendChild(resultItem);
     });
 }
 
-
-//för att visa resultaten
-laggTillResultat(gameResults);
+document.querySelector('#score-flik').addEventListener('click', function() 
+{
+    hideWiews();
+    document.querySelector('#body-score').classList.remove('hide');
+    laggTillResultat(gameResults);
+});
 
 
 // Sortering av antal gissningar
