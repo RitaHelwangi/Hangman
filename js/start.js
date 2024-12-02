@@ -1,3 +1,4 @@
+
 // Declare the selectedAvatar variable.
 let selectedAvatar = { headStart: '', difficulty: '' };
 
@@ -109,3 +110,8 @@ function goToPage(pageNumber) {
         document.getElementById('body-game').classList.remove('hide');
     }
 }
+
+
+
+
+
