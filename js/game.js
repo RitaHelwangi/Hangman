@@ -76,12 +76,12 @@ function handleGuess() {
   if (checkWin()) {
     /*showCustomDialog("Grattis! Du gissade ordet!");
     initGame();*/
-	hideViews()
+	hideWiews()
 	showEndScreen(true, wordToGuess)
   } else if (incorrectGuesses.length >= maxIncorrectGuesses) {
     /*showCustomDialog(`Du förlorade! Ordet var: ${wordToGuess}`);
     initGame();*/
-	hideViews()
+	hideWiews()
 	showEndScreen(false, wordToGuess)
   }
 }
@@ -104,13 +104,13 @@ function hideWiews() {
 	const bodyStart = document.querySelector('#body-start'); 
 	const bodyGame = document.querySelector('#body-game'); 
 	const bodyScore = document.querySelector('#body-score');
-	//const win = document.querySelector('#win');
-	//const lose = document.querySelector('#lose');
+	const win = document.querySelector('#win');
+	const lose = document.querySelector('#lose');
 	document.querySelector('#body-game').classList.add('hide');
 	document.querySelector('#body-score').classList.add('hide');
 	document.querySelector('#body-start').classList.add('hide');
-	//win.classList.add('hidden');
-	//lose.classList.add('hidden');
+	win.classList.add('hidden');
+	lose.classList.add('hidden');
 }
 
 
