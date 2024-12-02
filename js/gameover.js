@@ -68,7 +68,7 @@ function hideWiews() {
 }
 
 //spela igen och visa poäng buttons
-document.querySelector('#spela-igen-btn').addEventListener('click', function() {
+document.querySelector('#spela-igen-btn-lose').addEventListener('click', function() {
 	hideWiews()
 	document.querySelector('#body-game').classList.remove('hide');
 	
@@ -82,10 +82,11 @@ document.querySelector('#visa-poang-btn').addEventListener('click', function() {
 
 // "Spela igen" knapp för vinnar-sidan
 document.querySelector('#spela-igen-btn-win').addEventListener('click', function() {
-	hideViews(); 
+	hideWiews(); 
 	document.querySelector('#body-game').classList.remove('hide');  
 	initGame();  
   });
+
 
 // sriva ut ordet + antal gissningar i win/lose
 
