@@ -77,8 +77,8 @@ document.getElementById('time-button').addEventListener('click', () =>
 }); */
 
 
-
-document.querySelector('#spela-igen-btn').addEventListener('click', function() {
+//spela igen knapp-score
+document.querySelector('#spela-igen-btn-score').addEventListener('click', function() {
 	hideWiews()
 	document.querySelector('#body-game').classList.remove('hide');
 	

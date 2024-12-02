@@ -33,27 +33,27 @@ window.addEventListener('load', () => {
 	 const bodyScore = document.querySelector('#body-score'); 
 	 const win = document.querySelector('#win');
 	 const lose = document.querySelector('#lose');  
-	 hideWiews()
+	 hideViews()
 	 bodyStart.classList.remove('hide');    
 	
 
 // Flikar toggla mellan spelvyer
 document.querySelector('#start-flik').addEventListener('click', function() {
-	hideWiews()
+	hideViews()
 	document.querySelector('#body-start').classList.remove('hide');
 });
 });
 document.querySelector('#game-wiew-flik').addEventListener('click', function() {
-	hideWiews()
+	hideViews()
 	document.querySelector('#body-game').classList.remove('hide');
 });
 
 document.querySelector('#score-flik').addEventListener('click', function() {
-	hideWiews()
+	hideViews()
 	document.querySelector('#body-score').classList.remove('hide');
 });
 
-function hideWiews() {
+function hideViews() {
 	const bodyStart = document.querySelector('#body-start'); 
 	const bodyGame = document.querySelector('#body-game'); 
 	const bodyScore = document.querySelector('#body-score');
@@ -71,11 +71,11 @@ function hideWiews() {
 document.querySelector('#spela-igen-btn').addEventListener('click', function() {
 	hideWiews()
 	document.querySelector('#body-game').classList.remove('hide');
-	
+	initGame()
 });
 	
 document.querySelector('#visa-poang-btn').addEventListener('click', function() {
-	hideWiews()
+	hideViews()
 	document.querySelector('#body-score').classList.remove('hide');
 	
 });
@@ -91,6 +91,7 @@ const theGuessLose = document.createElement('p');
 const theWordWin = document.createElement('p');
 const theGuessWin = document.createElement('p');
 let wordToGuess = ''; 
+const guessInput = document.getElementById("guess-input");
 let incorrectGuesses = []; 
 const incorrectGuessesDisplay = document.getElementById("incorrect-guesses");
 const wordDisplay = document.getElementById("word-display");
@@ -108,12 +109,13 @@ gameUpdateLose.appendChild(theGuessLose);
 gameUpdateWin.appendChild(theWordWin);
 gameUpdateWin.appendChild(theGuessWin);
 
-//getRandomWord()
+
 
 updateWordDisplay()
-updateIncorrectGuesses();
+//updateIncorrectGuesses();
+handleGuess()
 console.log('Valt ord:', wordToGuess);
-console.log('gissade: ', updateIncorrectGuesses);
+
 
 
 // Get Random Word
@@ -142,7 +144,7 @@ function updateIncorrectGuesses() {
 	const letter = guessInput.value.toUpperCase();
 	guessInput.value = "";
   
-	if (!letter || !/^[A-ZÅÄÖ]$/.test(letter)) {
+	/*if (!letter || !/^[A-ZÅÄÖ]$/.test(letter)) {
 	  showCustomDialog("Vänligen skriv in en giltig bokstav.");
 	  return;
 	}
@@ -150,7 +152,7 @@ function updateIncorrectGuesses() {
 	if (guessedLetters.includes(letter) || incorrectGuesses.includes(letter)) {
 	  showCustomDialog("Du har redan gissat denna bokstav!");
 	  return;
-	}
+	}*/
   
 	if (wordToGuess.includes(letter)) {
 	  guessedLetters.push(letter);
@@ -163,3 +165,14 @@ function updateIncorrectGuesses() {
 	  
 	}
 }
+// Initialize Game
+function initGame() {
+	wordToGuess = getRandomWord();
+	guessedLetters = [];
+	incorrectGuesses = [];
+	updateWordDisplay();
+	updateIncorrectGuesses();
+	resetHangman();
+	guessInput.disabled = false;
+	guessButton.disabled = false;
+  }
