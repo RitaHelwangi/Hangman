@@ -1,14 +1,33 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212; 
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  padding: 10px; 
+}
 
 /* Welcome text */
 .welcome-text h1 {
   font-size: 2.5rem;
   transition: transform 0.5s ease;
   text-align: center;
+  border: none;
 }
 .welcome-text h1:hover {
   transform: translateY(30px); /* Moves down the text 30px when hovered */
   cursor: pointer;
 }
+
 .Hangman-img {
   width: 120px;
   height: 120px;
@@ -31,12 +50,30 @@
   flex-direction: column;
   font-size: 1.2rem;
   margin-top: 20px;
+  max-width: 100%; 
+  width: 100%;
+  max-width: 700px; 
+}
+.start-page h2 {
+  margin: 20px;
+}
+.avatar-container h3 {
+  margin: 20px;
+  color: darkgreen;
+}
+/* Player's name */
+.player-info label, input {
+  font-size: xx-large;
+  font-weight: 200;
+  margin: 10px;
+  text-align: center;
+  border-radius: 10px;
 }
 
+/* Hide elements when not needed */
 .hide {
   display: none;
 }
-
 
 /* Img Avatar */
 .option img {
@@ -46,14 +83,17 @@
   margin: 5px;
   transition: transform 0.3s ease; /* Smooth transition for the image */
 }
+
 .option img:hover {
   transform: translateX(15px); /* Moves the image to the right when hovered */
 }
+
 .clickable-image.selected {
   /* When an image Avatar is clicked and selected */
   border: 3px solid red;
   box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
 }
+
 #avatar-character img {
   /* Display area for selected Avatar */
   width: 140px;
@@ -69,7 +109,7 @@
   padding: 10px 30px;
   font-size: 1.1rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   cursor: pointer;
   display: none;
 }
@@ -102,6 +142,7 @@ dialog {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   text-align: center;
   font-size: 1.2rem;
+  margin: 30px;
 }
 dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.5);
@@ -119,3 +160,99 @@ dialog::backdrop {
 #dialog-close:hover {
   background-color: #0056b3;
 }
+
+/* --- Responsive Design --- */
+
+/* For small devices (phones) */
+@media (max-width: 480px) {
+  .welcome-text h1 {
+    font-size: 1.8rem;
+  }
+  .start-page {
+    padding: 15px;
+    font-size: 1rem;
+  }
+  .option img {
+    width: 70px;
+    height: 70px;
+  }
+  #avatar-character img {
+    width: 120px;
+    height: 120px;
+  }
+  #finish, #start-game {
+    font-size: 1rem;
+    padding: 8px 20px;
+  }
+}
+
+/* For tablets and small laptops (portrait mode) */
+@media (max-width: 768px) {
+  .welcome-text h1 {
+    font-size: 2rem;
+  }
+  .start-page {
+    padding: 20px;
+    font-size: 1.1rem;
+  }
+  .option img {
+    width: 80px;
+    height: 80px;
+  }
+  #avatar-character img {
+    width: 130px;
+    height: 130px;
+  }
+  #finish, #start-game {
+    font-size: 1.1rem;
+    padding: 10px 25px;
+  }
+}
+
+/* For larger tablets and smaller desktops (landscape mode) */
+@media (max-width: 1024px) {
+  .welcome-text h1 {
+    font-size: 2.3rem;
+  }
+  .start-page {
+    padding: 20px;
+    font-size: 1.2rem;
+  }
+  .option img {
+    width: 90px;
+    height: 90px;
+  }
+  #avatar-character img {
+    width: 140px;
+    height: 140px;
+  }
+  #finish, #start-game {
+    font-size: 1.2rem;
+    padding: 12px 30px;
+  }
+}
+
+/* For desktop and large screens */
+@media (min-width: 1025px) {
+  .welcome-text h1 {
+    font-size: 2.5rem;
+  }
+  .start-page {
+    padding: 30px;
+    font-size: 1.3rem;
+  }
+  .option img {
+    width: 100px;
+    height: 100px;
+  }
+  #avatar-character img {
+    width: 160px;
+    height: 160px;
+  }
+  #finish, #start-game {
+    font-size: 1.3rem;
+    padding: 15px 35px;
+  }
+}
+
+
