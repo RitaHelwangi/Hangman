@@ -74,7 +74,13 @@ document.querySelector('#spela-igen-btn-lose').addEventListener('click', functio
 	initGame()
 });
 	
-document.querySelector('#visa-poang-btn').addEventListener('click', function() {
+document.querySelector('#visa-poang-btn-lose').addEventListener('click', function() {
+	hideViews()
+	document.querySelector('#body-score').classList.remove('hide');
+	
+});
+
+document.querySelector('#visa-poang-btn-win').addEventListener('click', function() {
 	hideViews()
 	document.querySelector('#body-score').classList.remove('hide');
 	
