@@ -5,7 +5,7 @@ import { words } from "./svenska-ord.js";
 const wordDisplay = document.getElementById("word-display");
 const incorrectGuessesDisplay = document.getElementById("incorrect-guesses");
 const guessInput = document.getElementById("guess-input");
-const guessButton = document.getElementById("guess-btn");
+//const guessButton = document.getElementById("guess-btn");
 const spelaIgenBtn = document.getElementById("spela-igen-btn");
 const visaPoangBtn = document.getElementById("visa-poang-btn");
 const hangmanFigure = document.querySelector(".hangman-figure");
@@ -191,7 +191,8 @@ function saveGameResult(didWin) {
 
 
 // Event Listeners
-guessButton.addEventListener("click", handleGuess);
+guessInput.addEventListener("input", handleGuess);
+//guessButton.addEventListener("click", handleGuess);
 spelaIgenBtn.addEventListener("click", initGame); // Reset game on 'spela igen'
 visaPoangBtn.addEventListener("click", () => {
   const results = JSON.parse(localStorage.getItem("gameResults")) || [];
