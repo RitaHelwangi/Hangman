@@ -48,8 +48,9 @@ function checkFinishButton() {
 document.getElementById('finish').addEventListener('click', function () {
     const playerName = document.getElementById('player-name').value.trim();
     if (playerName && selectedAvatar.head && selectedAvatar.difficulty) {
-        // Store the player's name in localStorage.
+        // Store the player's name and avatar in localStorage
         localStorage.setItem('playerName', playerName);
+        localStorage.setItem('selectedAvatar', selectedAvatar.head);  
 
         // Display the confirmation message.
         document.getElementById('game-message').innerHTML = `
@@ -57,7 +58,7 @@ document.getElementById('finish').addEventListener('click', function () {
             <p>Du har valt Avatar: ${selectedAvatar.head}</p>
             <p>Du har valt nivå: ${selectedAvatar.difficulty}</p>`;
     }
-});
+});;
 
 // Function to display a dialog notification.
 function showDialog(message) {

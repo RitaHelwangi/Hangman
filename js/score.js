@@ -24,15 +24,6 @@ function laggTillResultat(result)
     // Lägg till varje spelares resultat
     result.forEach((player) => 
     {
-        /*const formattedTime = new Date(player.time).toLocaleString("sv-SE", {
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit",
-            hour: "2-digit",
-            minute: "2-digit",
-            second: "2-digit",
-        });*/
-
         //hämta avatar-bild från start
         const avatarName = player.avatar || localStorage.getItem("selectedAvatar");
 
@@ -40,7 +31,7 @@ function laggTillResultat(result)
         resultItem.classList.add('result-item');
         resultItem.innerHTML = `
             <div class="column">
-                <img src="img/${avatarName}.png" alt="${avatarName}" class="clickable-image" />
+                <img src="img/${avatarName}.png" alt="${avatarName}" class="avatar-image" />
             </div>
             <div class="column">${player.name}</div>
             <div class="column">${player.incorrectGuesses}</div>

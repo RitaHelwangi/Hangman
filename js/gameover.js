@@ -86,7 +86,7 @@ document.querySelector('#spela-igen-btn-win').addEventListener('click', function
 	document.querySelector('#body-game').classList.remove('hide');  
 	initGame();  
   });
-
+  
 
 // sriva ut ordet + antal gissningar i win/lose
 
