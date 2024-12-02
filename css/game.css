@@ -90,6 +90,8 @@ button:hover {
   display: block;
   max-width: 100%;
   height: auto;
+  padding: 8px;
+  background-color: rgb(116 115 115 / 83%);
 }
 
 /* Hide figure */

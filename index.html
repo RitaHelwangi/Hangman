@@ -116,30 +116,11 @@
       <section id="game-view">
         <div class="game-info">
           <h2>Gissa ordet:</h2>
-          <p id="word-display">_ _ _ _ _ _ _ _ _ _</p>
-          <p class="enter-letter">Gissade bokstäver: <span id="incorrect-guesses"></span></p>
-          <label for="guess-input">Ange en bokstav:</label>
-          <input
-            type="text"
-            id="guess-input"
-            maxlength="1"
-            placeholder="Skriv en bokstav"
-            aria-describedby="letter-info"
-          />
-          
-        </div>
-        <div class="game-actions">
-          <button id="spela-igen-btn">Spela igen</button>
-          <button id="visa-poang-btn">Visa poäng</button>
-        </div>
-      </section>
-      <!-- Hangman Figure -->
-      <section id="hangman-figure-section">
-        <figure class="hangman-figure">
+		  <figure class="hangman-figure">
           <svg
-            width="501"
-            height="565"
-            viewBox="0 0 501 565"
+            width="400"
+            height="180"
+            viewBox="0 0 501 400"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -186,6 +167,26 @@
             />
           </svg>
         </figure>
+          <p id="word-display">_ _ _ _ _ _ _ _ _ _</p>
+          <p class="enter-letter">Gissade bokstäver: <span id="incorrect-guesses"></span></p>
+          <label for="guess-input">Ange en bokstav:</label>
+          <input
+            type="text"
+            id="guess-input"
+            maxlength="1"
+            placeholder="Skriv en bokstav"
+            aria-describedby="letter-info"
+          />
+          
+        </div>
+        <div class="game-actions">
+          <button id="spela-igen-btn">Spela igen</button>
+          <button id="visa-poang-btn">Visa poäng</button>
+        </div>
+      </section>
+      <!-- Hangman Figure -->
+      <section id="hangman-figure-section">
+        
       </section>
     </div>
 
