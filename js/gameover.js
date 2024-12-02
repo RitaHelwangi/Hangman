@@ -18,7 +18,7 @@ function showEndScreen(isWinner, word) {
 	} 
 	// Visa det vinnande ordet om det finns
     if (!isWinner && word) {
-        lose.textContent = `Tyvärr, ordet var: ${word}`;
+        lose.innerHTML = `<p>Tyvärr, ordet var: ${word}</p>`;
     }
 }
 	
@@ -33,27 +33,27 @@ window.addEventListener('load', () => {
 	 const bodyScore = document.querySelector('#body-score'); 
 	 const win = document.querySelector('#win');
 	 const lose = document.querySelector('#lose');  
-	 hideWiews()
+	 hideViews()
 	 bodyStart.classList.remove('hide');    
 	
 
 // Flikar toggla mellan spelvyer
 document.querySelector('#start-flik').addEventListener('click', function() {
-	hideWiews()
+	hideViews()
 	document.querySelector('#body-start').classList.remove('hide');
 });
 });
 document.querySelector('#game-wiew-flik').addEventListener('click', function() {
-	hideWiews()
+	hideViews()
 	document.querySelector('#body-game').classList.remove('hide');
 });
 
 document.querySelector('#score-flik').addEventListener('click', function() {
-	hideWiews()
+	hideViews()
 	document.querySelector('#body-score').classList.remove('hide');
 });
 
-function hideWiews() {
+function hideViews() {
 	const bodyStart = document.querySelector('#body-start'); 
 	const bodyGame = document.querySelector('#body-game'); 
 	const bodyScore = document.querySelector('#body-score');
@@ -69,24 +69,23 @@ function hideWiews() {
 
 //spela igen och visa poäng buttons
 document.querySelector('#spela-igen-btn-lose').addEventListener('click', function() {
-	hideWiews()
+	hideViews()
 	document.querySelector('#body-game').classList.remove('hide');
-	
+	initGame()
 });
 	
 document.querySelector('#visa-poang-btn').addEventListener('click', function() {
-	hideWiews()
+	hideViews()
 	document.querySelector('#body-score').classList.remove('hide');
 	
 });
 
 // "Spela igen" knapp för vinnar-sidan
 document.querySelector('#spela-igen-btn-win').addEventListener('click', function() {
-	hideWiews(); 
-	document.querySelector('#body-game').classList.remove('hide');  
+	hideViews(); 
+	document.querySelector('#body-game').classList.remove('hide'); 
 	initGame();  
   });
-  
 
 // sriva ut ordet + antal gissningar i win/lose
 
