@@ -265,4 +265,3 @@ document.getElementById('start-game').addEventListener('click', function() {
     console.log(`Din Hangman: ${selectedParts.head}`)
 })
 
-export {updateIncorrectGuesses} 

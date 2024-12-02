@@ -91,6 +91,7 @@ const theGuessLose = document.createElement('p');
 const theWordWin = document.createElement('p');
 const theGuessWin = document.createElement('p');
 let wordToGuess = ''; 
+const guessInput = document.getElementById("guess-input");
 let incorrectGuesses = []; 
 const incorrectGuessesDisplay = document.getElementById("incorrect-guesses");
 const wordDisplay = document.getElementById("word-display");
@@ -108,12 +109,13 @@ gameUpdateLose.appendChild(theGuessLose);
 gameUpdateWin.appendChild(theWordWin);
 gameUpdateWin.appendChild(theGuessWin);
 
-//getRandomWord()
+
 
 updateWordDisplay()
-updateIncorrectGuesses();
+//updateIncorrectGuesses();
+handleGuess()
 console.log('Valt ord:', wordToGuess);
-console.log('gissade: ', updateIncorrectGuesses);
+
 
 
 // Get Random Word
@@ -142,7 +144,7 @@ function updateIncorrectGuesses() {
 	const letter = guessInput.value.toUpperCase();
 	guessInput.value = "";
   
-	if (!letter || !/^[A-ZÅÄÖ]$/.test(letter)) {
+	/*if (!letter || !/^[A-ZÅÄÖ]$/.test(letter)) {
 	  showCustomDialog("Vänligen skriv in en giltig bokstav.");
 	  return;
 	}
@@ -150,7 +152,7 @@ function updateIncorrectGuesses() {
 	if (guessedLetters.includes(letter) || incorrectGuesses.includes(letter)) {
 	  showCustomDialog("Du har redan gissat denna bokstav!");
 	  return;
-	}
+	}*/
   
 	if (wordToGuess.includes(letter)) {
 	  guessedLetters.push(letter);
