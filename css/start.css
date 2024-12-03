@@ -1,1 +1,119 @@
+/* Welcome text */
+.welcome-text h1 {
+  font-size: 2.5rem;
+  transition: transform 0.5s ease;
+  text-align: center;
+}
+.welcome-text h1:hover {
+  transform: translateY(30px); /* Moves down the text 30px when hovered */
+  cursor: pointer;
+}
+.Hangman-img {
+  width: 120px;
+  height: 120px;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+}
 
+/* Start page container */
+.start-page {
+  text-align: center;
+  background-color: #1a1a1a;
+  color: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+.hide {
+  display: none;
+}
+
+/* Img Avatar */
+.option img {
+  width: 90px;
+  height: 90px;
+  cursor: pointer;
+  margin: 5px;
+  transition: transform 0.3s ease; /* Smooth transition for the image */
+}
+.option img:hover {
+  transform: translateX(15px); /* Moves the image to the right when hovered */
+}
+.clickable-image.selected {
+  /* When an image Avatar is clicked and selected */
+  border: 3px solid red;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+#avatar-character img {
+  /* Display area for selected Avatar */
+  width: 140px;
+  height: 140px;
+  margin-top: 20px;
+}
+
+/* Finish button */
+#finish {
+  margin-top: 20px;
+  background-color: green;
+  color: white;
+  padding: 10px 30px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: none;
+}
+#finish:hover {
+  background-color: darkgreen;
+}
+
+/* Display for game message */
+#game-message {
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+/* Start game button */
+#start-game {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+#start-game:hover {
+  transform: scale(1.05);
+}
+
+/* Dialog */
+dialog {
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 1.2rem;
+}
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#dialog-close {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#dialog-close:hover {
+  background-color: #0056b3;
+}
