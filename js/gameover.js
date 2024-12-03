@@ -111,6 +111,13 @@ const wordDisplay = document.getElementById("word-display");
 let guessedLetters = [];
 
 wordToGuess = getRandomWord();
+handleGuess()
+updateIncorrectGuesses();
+updateWordDisplay()
+
+
+console.log('Valt ord:', wordToGuess);
+
 theWordLose.innerText = `Ordet var: ${wordToGuess}`;
 theGuessLose.innerText = `Antal gissningar: ${incorrectGuesses.length}`;
 
@@ -121,13 +128,6 @@ gameUpdateLose.appendChild(theWordLose);
 gameUpdateLose.appendChild(theGuessLose);
 gameUpdateWin.appendChild(theWordWin);
 gameUpdateWin.appendChild(theGuessWin);
-
-
-
-updateWordDisplay()
-//updateIncorrectGuesses();
-handleGuess()
-console.log('Valt ord:', wordToGuess);
 
 
 
@@ -157,15 +157,15 @@ function updateIncorrectGuesses() {
 	const letter = guessInput.value.toUpperCase();
 	guessInput.value = "";
   
-	/*if (!letter || !/^[A-ZÅÄÖ]$/.test(letter)) {
-	  showCustomDialog("Vänligen skriv in en giltig bokstav.");
+	if (!letter || !/^[A-ZÅÄÖ]$/.test(letter)) {
+	 // showCustomDialog("Vänligen skriv in en giltig bokstav.");
 	  return;
 	}
   
 	if (guessedLetters.includes(letter) || incorrectGuesses.includes(letter)) {
-	  showCustomDialog("Du har redan gissat denna bokstav!");
+	 // showCustomDialog("Du har redan gissat denna bokstav!");
 	  return;
-	}*/
+	}
   
 	if (wordToGuess.includes(letter)) {
 	  guessedLetters.push(letter);
@@ -178,14 +178,3 @@ function updateIncorrectGuesses() {
 	  
 	}
 }
-// Initialize Game
-function initGame() {
-	wordToGuess = getRandomWord();
-	guessedLetters = [];
-	incorrectGuesses = [];
-	updateWordDisplay();
-	updateIncorrectGuesses();
-	resetHangman();
-	guessInput.disabled = false;
-	guessButton.disabled = false;
-  }

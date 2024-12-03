@@ -107,3 +107,12 @@ button {
 	color: white;
 }
 
+/* Media query */
+@media (min-width: 350px) {
+	.WL-buttons {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}
