@@ -1,0 +1,93 @@
+Photsathon Karlsson
+Grupparbete JavaScript : Hangman Game
+Curly fighters : Photsathon, Rita, Mikaela, Hanna
+
+GitHub : https://github.com/RitaHelwangi/Hangman
+
+Web :  https://ritahelwangi.github.io/Hangman/
+
+projektrapport:   	Vi är Curly Fighters-gruppen (Rita, Hanna, Photathon och Meackaela). Vi har delat upp arbetet så att varje person ansvarar för innehåll och funktioner i sin tilldelade vy. 
+				Första vyn: Här anger man sitt namn, väljer en avatar, svårighetsgrad för ordet och kan klicka på en knapp för att börja spelet.
+    				Spelvyn: Här gissar man bokstäver via tangentbordet. Vid felaktiga gissningar ritas delar av hangman, och efter sex fel visas "Game Over"-vyn.
+    				Game Over-vyn: Den avslöjar om man vunnit eller förlorat, det rätta ordet samt antal gissningar. Här finns också knappar för att spela igen eller visa poäng.
+    				Poängvyn: Visar en lista med spelarens namn, vald avatar, ordets längd, antal gissningar, datum, tid och resultat (vinst/förlust). Listan kan sorteras efter datum/tid och antal gissningar. 
+				Även här finns knappar för att spela igen eller visa poäng.
+			Spelet har flikar för att enkelt växla mellan vyerna. I vårt code review med andra grupper fick vi feedback om att det var jobbigt att använda gissaknappen varje gång man skulle gissa en bokstav, 
+			så vi har tagit bort den.
+
+Arbetet : 	Photsathon : 	Fas 1: nytt spel, HTML/CSS/JS/README.md, GitHub(Branch) 
+		Rita : 		Fas 2: gissa, HTML/CSS/JS/README.md, GitHub(Main) 	
+		Mikaela : 	Fas 3a: hela ordet är ifyllt, HTML/CSS/JS/README.md, GitHub(Branch) 
+		Hanna : 	Fas 3b: hela gubben har ritats ut, HTML/CSS/JS/README.md, GitHub(Branch) 
+ 
+Vad har jag lärt mig av att arbeta i gruppen : 
+	Jag har lärt mig att samarbeta bättre med andra (med min grupp och andra grupper), lyssna på olika idéer och dela med mig av mina egna tankar. 
+	Jag har också fått träna på att lösa problem tillsammans och hur man arbetar som ett team för att nå ett gemensamt mål.
+
+Hur jag tycker att arbetet i gruppen har fungerat :
+	Arbetet i gruppen har fungerat bra. Alla har hjälpt till och stöttat varandra. 
+	Ibland har det varit lite svårt att komma överens eller tid, men vi har löst det genom att prata och lyssna på varandra.
+	Jag är så nöjd med min grupp, tack för projektet.
+
+Code review & Feedback & Problem :
+
+2024-11-19	Grupparbete börjar: Vi pratar om vårt projekt, delar upp våra uppgifter och diskuterar var vi ska träffas eller hur vi kan arbeta tillsammans.	
+2024-11-20	Presentera gruppens projektplan för läraren - Visa vår Projektplanering och prata om den.	
+2024-11-21	Börja planera hur vårt spel ska se ut.	
+2024-11-22	Börja skapa vår egen sida med HTML, CSS, JavaScript.	
+2024-11-23	Code review i vår grupp, prata om problem och dela idéer. Fått hjälp från kompisar och testa med Aizo så vi lösa problem.
+		- Min kod fungerar inte, ingenting visas på skärmen.
+			- ex.1
+    			console.log(`Välkommen, ${playerName}! Spelet startar...`)
+    			console.log(`Du har valt Hangman: ${selectedParts.head}`)
+			- ex.2
+			function displayHangmanCharacter() {
+    			const hangmanCharacter = `<img src="img/${selectedParts.head}.png" alt="${selectedParts.head}">`
+    			document.getElementById('hangman-character').innerHTML = hangmanCharacter}
+				Byt till - 	functiondisplayAvatarCharacter() { if(selectedAvatar.head) { constavatarHTML = `<img src="img/${selectedAvatar.head}.png" alt="${selectedAvatar.head}">`; 
+						document.getElementById('avatar-character').innerHTML= avatarHTML; } }
+2024-11-24	Code review i vår grupp, fixa problem.	
+			- Liten text på startsidan.
+			- Sätt fler 3 nivåknappar (lätt, medium, hård).
+			- Varför har vi Avatar???
+2024-11-25	Fixa kod att ändra "alertfunktion" till "Dialog".	
+			- Från 	if (!selectedAvatar.head) {alert("Välj Avatar!") // Alert if the players didn't choose their Avatars
+        			return}
+			- Till dialog function. 	
+2024-14-26	Få Code review från Klassmate och gruppmedlemmar	
+	        - Jag måste fixa större textstorlek, lägga till fler spelnivåer (t.ex. Nivå 1, 2, 3).
+	        - Ändra "alert" till "dialog".
+	        - Fixa större text.
+	        - Lägg till tre nivåknappar (lätt - medel - svårt).
+		- IMG visades inte på displayen så kolla jag all kod och namn på img för att lösa problemet.
+2024-11-27	Code review i tvärgrupper : få fler idéer om designsidan, organisera koden och hur man lösa problem.
+			- ex. (JS) Denna på visades inte på displayen
+				från - 	// Show player's name and avatar when start game
+    					console.log(`Välkommen, ${playerName}! Spelet startar...`)
+    					console.log(`Du har valt Avatar: ${selectedAvatar.head}`)
+				till -	Fixade <!-- Display selected Avatar --> i HTML			
+2024-11-28	Handledning grupparbete (Git-repetition)
+		- Måste fixa länk från sida 1 till sida 2 : funkar inte med Eventlistener 	
+2024-11-29	Självstudier: grupparbete	
+2024-11-30	Fixa kod som ha problem (Function for changing pages.)  
+			function goToPage(pageNumber) {
+    			// Hide pages
+    			document.getElementById('body-start').classList.add('hide')
+    			document.getElementById('body-game').classList.add('hide')
+    			// Show game page if pageNumber is 2
+    			if (pageNumber === 2) {
+      			document.getElementById('body-game').classList.remove('hide')
+    			}
+  			}
+  			// When click on the 'start-game' button, will be taken to the 2nd game page.
+  			document.getElementById('start-game').addEventListener('click', () => {
+    			goToPage(2); // Go to page 2 (start playing game)
+  			})			
+2024-12-1	Fixa kod som ha problem : 
+			- ta bort window.location.href = "start.html"
+			- Fixade problem efter att skapa ny startknappsfunktion, spelaren kan klicka på startknappen för att spela spel utan skriva namn eller välja avatar.		
+2024-12-2	Självstudier: grupparbete
+			- Kontrollera om vårt spel fungerar och försök åtgärda problemet.
+			- Gruppmöte
+				- Vi kollar på vårt spel och pratar om vad vi ska fixa som fuction, responsiv design, positionen av Hangman eller textfältet och färg.	
+2024-12-3	Presentation av grupparbeten för klassen	
