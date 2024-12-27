@@ -96,3 +96,101 @@ button:hover {
   background-color: darkgreen;
   transform: scale(1.05);
 }
+
+/* Responsive Design - 350px to 930px */
+@media (min-width: 350px) and (max-width: 930px) {
+
+  /* Fixed and smaller #score-container */
+  #score-container {
+    width: 300px; 
+    padding: 15px;
+    margin: 20px auto; 
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+    text-align: center;
+    font-size: 1rem; 
+  }
+
+  /* Fixed and smaller #headScore */
+  #headScore {
+    font-size: 1.4rem; 
+    margin-bottom: 20px;
+    border-bottom: 2px solid white;
+  }
+
+  /* Image size adjustments for smaller screens */
+  .option img {
+    width: 80px;
+    height: 80px;
+  }
+
+  /* Avatar image size */
+  .avatar-img {
+    width: 45px;
+    height: 45px;
+  }
+
+  /* Flex container for result list */
+  .result-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  /* Flex item adjustments for result items */
+  .result-item {
+    padding: 10px;
+    width: 100%; 
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Column adjustments - smaller margins and padding */
+  .column {
+    padding: 12px;
+    margin: 5px;
+    width: 45%; 
+    box-sizing: border-box;
+  }
+
+  /* Button styling for smaller screens */
+  button {
+    padding: 12px 25px;
+    width: 100%;
+    max-width: 250px;
+    font-size: 16px;
+    margin: 15px auto;
+    display: block;
+  }
+
+  /* Image hover effect */
+  .option img:hover {
+    transform: scale(1.05);
+  }
+
+  /* Adjust result item alignment for small screens */
+  .result-item {
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+  }
+
+  /* Style adjustments for small screens */
+  .header-row {
+    font-size: 18px;
+    padding: 15px;
+  }
+
+  /* Styling for columns in result list */
+  .column {
+    width: 45%;
+    padding: 12px;
+    margin: 5px;
+    background-color: #393636;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+}

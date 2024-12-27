@@ -138,3 +138,200 @@ button:hover {
 .custom-dialog button:hover {
   background-color: #45a049;
 }
+
+
+/* Responsive Design for 350px */
+@media (max-width: 400px) {
+  #game-view {
+    width: 90%;
+    padding: 10px;
+    margin: 20px auto;
+    border-radius: 5px;
+  }
+
+  .game-info {
+    margin-bottom: 15px;
+  }
+
+  .game-info h2 {
+    font-size: 1.2rem;
+  }
+
+  #word-display {
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+  }
+
+  .enter-letter {
+    font-size: 1rem;
+  }
+
+  #incorrect-guesses {
+    font-size: 0.9rem;
+  }
+
+  label {
+    font-size: 1rem;
+  }
+
+  #guess-input {
+    font-size: 0.9rem;
+    padding: 6px;
+    width: 80%;
+  }
+
+  button {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+
+  .game-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #hangman-figure-section {
+    margin-top: 20px;
+  }
+
+  .custom-dialog {
+    padding: 15px;
+  }
+
+  .custom-dialog button {
+    font-size: 0.7rem;
+    padding: 8px;
+  }
+}
+
+/* Responsive Design for 350px to 500px */
+@media (min-width: 350px) and (max-width: 500px) {
+  #body-game {
+    width: 95%; 
+    max-width: 500px; 
+    padding: 15px; 
+    margin: 20px auto; 
+  }
+
+  #game-view {
+    width: 100%;
+    padding: 15px;
+    margin: 0 auto;
+    border-radius: 8px;
+  }
+
+  .game-info {
+    margin-bottom: 10px;
+  }
+
+  .game-info h2 {
+    font-size: 1.4rem;
+  }
+
+  #word-display {
+    font-size: 1.4rem;
+    letter-spacing: 6px;
+    margin: 10px 0;
+  }
+
+  .enter-letter {
+    font-size: 1rem;
+  }
+
+  #incorrect-guesses {
+    font-size: 1rem;
+    color: #d9534f;
+  }
+
+  label {
+    font-size: 1.1rem;
+    margin-top: 8px;
+  }
+
+  #guess-input {
+    font-size: 0.9rem; 
+    text-align: center;
+    margin: 8px;
+    padding: 6px;
+    width: 60%; 
+    border-radius: 8px;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+
+  button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+  }
+
+  .game-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+
+  /* Smaller hangman figure section */
+  #hangman-figure-section {
+    margin-top: 15px;
+    max-width: 70%; 
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hangman-figure {
+    width: 80%; 
+    max-width: 350px; 
+    height: auto; 
+    padding: 4px;
+    background-color: rgb(116 115 115 / 83%);
+    display: block;
+    margin: 0 auto; 
+  }
+  
+  .hangman-figure svg {
+    width: 100%; 
+    height: auto; 
+  }
+  
+
+  /* Hide figure parts initially */
+  #hangman-figure-section .hangman-figure path,
+  #hangman-figure-section .hangman-figure ellipse {
+    visibility: hidden;
+  }
+
+  /* Show parts of the figure when wrong guesses happen */
+  .hangman-figure.wrong-guess-1 #scaffold,
+  .hangman-figure.wrong-guess-2 #legs,
+  .hangman-figure.wrong-guess-3 #arms,
+  .hangman-figure.wrong-guess-4 #body,
+  .hangman-figure.wrong-guess-5 #head {
+    visibility: visible;
+  }
+
+  .custom-dialog {
+    padding: 18px;
+    font-size: 0.9rem;
+  }
+
+  .custom-dialog button {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+
+}
