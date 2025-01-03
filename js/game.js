@@ -1,11 +1,10 @@
 import { words } from "./svenska-ord.js";
 
-
 // DOM Elements
 const wordDisplay = document.getElementById("word-display");
 const incorrectGuessesDisplay = document.getElementById("incorrect-guesses");
 const guessInput = document.getElementById("guess-input");
-//const guessButton = document.getElementById("guess-btn");
+const guessButton = document.getElementById("guess-button");
 const spelaIgenBtn = document.getElementById("spela-igen-btn");
 const visaPoangBtn = document.getElementById("visa-poang-btn");
 const hangmanFigure = document.querySelector(".hangman-figure");
@@ -18,13 +17,13 @@ const hangmanParts = [
   document.getElementById("arms"),
   document.getElementById("legs"),
   document.getElementById("scaffold"),
-  document.getElementById("ground")
+  document.getElementById("ground"),
 ];
 
 // Variables
-let wordToGuess = ''; 
+let wordToGuess = "";
 let guessedLetters = [];
-let incorrectGuesses = []; 
+let incorrectGuesses = [];
 const maxIncorrectGuesses = hangmanParts.length;
 
 // Initialize Game
@@ -36,7 +35,7 @@ function initGame() {
   updateIncorrectGuesses();
   resetHangman();
   guessInput.disabled = false;
-  guessButton.disabled = false;
+  //guessButton.disabled = false;
 }
 
 // Get Random Word
@@ -61,13 +60,11 @@ function handleGuess() {
 
   if (wordToGuess.includes(letter)) {
     guessedLetters.push(letter);
-	console.log('gissade rätt');
-	
+    console.log("gissade rätt");
   } else {
     incorrectGuesses.push(letter);
     revealHangmanPart();
-	console.log('gissade fel', wordToGuess, letter);
-	
+    console.log("gissade fel", wordToGuess, letter);
   }
 
   updateWordDisplay();
@@ -76,51 +73,48 @@ function handleGuess() {
   if (checkWin()) {
     /*showCustomDialog("Grattis! Du gissade ordet!");
     initGame();*/
-	hideWiews()
-  saveGameResult(true, wordToGuess);
-	showEndScreen(true, wordToGuess)
+    hideWiews();
+    saveGameResult(true, wordToGuess);
+    showEndScreen(true, wordToGuess);
   } else if (incorrectGuesses.length >= maxIncorrectGuesses) {
     /*showCustomDialog(`Du förlorade! Ordet var: ${wordToGuess}`);
     initGame();*/
-	hideWiews()
-  saveGameResult(false, wordToGuess);
-	showEndScreen(false, wordToGuess)
+    hideWiews();
+    saveGameResult(false, wordToGuess);
+    showEndScreen(false, wordToGuess);
   }
 }
 
 //boolean funcion win/lose
 function showEndScreen(isWinner) {
-	const win = document.querySelector('#win');
-	const lose = document.querySelector('#lose');
-	//const gameUpdateLose = document.querySelector('#game-update-lose');
-	//const gameUpdateWin = document.querySelector('#game-update-win');
-	if (isWinner) {
-		document.querySelector('#win').classList.remove('hidden');
-    	document.querySelector('#lose').classList.add('hidden');
-		//document.querySelector('#game-update-win').classList.remove('hidden');
-		//document.querySelector('#game-update-lose').classList.add('hidden');
-		
-	} else  {
-		document.querySelector('#lose').classList.remove('hidden');
-    	document.querySelector('#win').classList.add('hidden');
-		//document.querySelector('#game-update-lose').classList.remove('hidden');
-		//document.querySelector('#game-update-win').classList.add('hidden');
-	} 
-	
+  const win = document.querySelector("#win");
+  const lose = document.querySelector("#lose");
+  //const gameUpdateLose = document.querySelector('#game-update-lose');
+  //const gameUpdateWin = document.querySelector('#game-update-win');
+  if (isWinner) {
+    document.querySelector("#win").classList.remove("hidden");
+    document.querySelector("#lose").classList.add("hidden");
+    //document.querySelector('#game-update-win').classList.remove('hidden');
+    //document.querySelector('#game-update-lose').classList.add('hidden');
+  } else {
+    document.querySelector("#lose").classList.remove("hidden");
+    document.querySelector("#win").classList.add("hidden");
+    //document.querySelector('#game-update-lose').classList.remove('hidden');
+    //document.querySelector('#game-update-win').classList.add('hidden');
+  }
 }
 function hideWiews() {
-	const bodyStart = document.querySelector('#body-start'); 
-	const bodyGame = document.querySelector('#body-game'); 
-	const bodyScore = document.querySelector('#body-score');
-	const win = document.querySelector('#win');
-	const lose = document.querySelector('#lose');
-	document.querySelector('#body-game').classList.add('hide');
-	document.querySelector('#body-score').classList.add('hide');
-	document.querySelector('#body-start').classList.add('hide');
-	win.classList.add('hidden');
-	lose.classList.add('hidden');
+  const bodyStart = document.querySelector("#body-start");
+  const bodyGame = document.querySelector("#body-game");
+  const bodyScore = document.querySelector("#body-score");
+  const win = document.querySelector("#win");
+  const lose = document.querySelector("#lose");
+  document.querySelector("#body-game").classList.add("hide");
+  document.querySelector("#body-score").classList.add("hide");
+  document.querySelector("#body-start").classList.add("hide");
+  win.classList.add("hidden");
+  lose.classList.add("hidden");
 }
-
 
 // Update Word Display
 function updateWordDisplay() {
@@ -128,8 +122,7 @@ function updateWordDisplay() {
     .split("")
     .map((letter) => (guessedLetters.includes(letter) ? letter : "_"))
     .join(" ");
-	console.log('word display: ', guessedLetters);
-	
+  console.log("word display: ", guessedLetters);
 }
 
 // Update Incorrect Guesses
@@ -152,11 +145,18 @@ function resetHangman() {
 
 // Check Win Condition
 function checkWin() {
-  return wordToGuess.split("").every((letter) => guessedLetters.includes(letter));
+  return wordToGuess
+    .split("")
+    .every((letter) => guessedLetters.includes(letter));
 }
 
 // Show Custom Dialog
 function showCustomDialog(message) {
+  const existingDialog = document.querySelector(".custom-dialog");
+  if (existingDialog) {
+    existingDialog.remove();
+  }
+
   const dialog = document.createElement("div");
   dialog.classList.add("custom-dialog");
   dialog.innerHTML = `
@@ -167,37 +167,34 @@ function showCustomDialog(message) {
 
   const closeButton = document.getElementById("close-dialog");
   closeButton.addEventListener("click", () => {
-    document.body.removeChild(dialog);
+    dialog.remove();
   });
 }
 
-  // Save Game Result
-  function saveGameResult(didWin, word) 
-  {
-    const playerName = localStorage.getItem("playerName") || "Spelare";
-    const selectedAvatar = localStorage.getItem("selectedAvatar") || 'default-avatar';
+// Save Game Result
+function saveGameResult(didWin, word) {
+  const playerName = localStorage.getItem("playerName") || "Spelare";
+  const selectedAvatar =
+    localStorage.getItem("selectedAvatar") || "default-avatar";
 
-    const result = 
-    {
-        name: playerName,
-        avatar: selectedAvatar,
-        incorrectGuesses: incorrectGuesses.length,
-        wordLength: word.length,
-        time: new Date().toISOString(),
-        guessedCorrectly: didWin,
-    };
+  const result = {
+    name: playerName,
+    avatar: selectedAvatar,
+    incorrectGuesses: incorrectGuesses.length,
+    wordLength: word.length,
+    time: new Date().toISOString(),
+    guessedCorrectly: didWin,
+  };
 
-    const gameResults = JSON.parse(localStorage.getItem("gameResults")) || [];
-    gameResults.push(result);
-    localStorage.setItem("gameResults", JSON.stringify(gameResults));
+  const gameResults = JSON.parse(localStorage.getItem("gameResults")) || [];
+  gameResults.push(result);
+  localStorage.setItem("gameResults", JSON.stringify(gameResults));
 }
 
-  // input and button
- //document.getElementById('guess-input').disabled = false;
- //document.getElementById('guess-btn').disabled = false;
- //document.getElementById('guess-input').value = '';  // Clear the input field
- 
-
+// input and button
+//document.getElementById('guess-input').disabled = false;
+//document.getElementById('guess-btn').disabled = false;
+//document.getElementById('guess-input').value = '';  // Clear the input field
 
 // Event Listeners
 guessInput.addEventListener("input", handleGuess);
@@ -220,58 +217,59 @@ visaPoangBtn.addEventListener("click", () => {
 // Start Game
 initGame();
 let selectedParts = {
-    head: ''
-}
+  head: "",
+};
 
 // When click on the image.
-const clickableImages = document.querySelectorAll('.clickable-image')
+const clickableImages = document.querySelectorAll(".clickable-image");
 
-clickableImages.forEach(img => {
-    img.addEventListener('click', function() {
-        const part = this.getAttribute('data-part')  // Get selected value from data-part.
+clickableImages.forEach((img) => {
+  img.addEventListener("click", function () {
+    const part = this.getAttribute("data-part"); // Get selected value from data-part.
 
-        // Update the values ​​of the selected part.
-        const partType = this.closest('.option').id  // Find the ID of the selected part (ex. head).
-        selectedParts[partType] = part
+    // Update the values ​​of the selected part.
+    const partType = this.closest(".option").id; // Find the ID of the selected part (ex. head).
+    selectedParts[partType] = part;
 
-        // Remove selection from other images & add selection to the clicked image.
-        document.querySelectorAll(`#${partType} .clickable-image`).forEach(image => {
-            image.classList.remove('selected')  // Cancel Selection
-        })
-        this.classList.add('selected')  // Select image
+    // Remove selection from other images & add selection to the clicked image.
+    document
+      .querySelectorAll(`#${partType} .clickable-image`)
+      .forEach((image) => {
+        image.classList.remove("selected"); // Cancel Selection
+      });
+    this.classList.add("selected"); // Select image
 
-        // Show selected Hangman.
-        displayHangmanCharacter()
-    })
-})
+    // Show selected Hangman.
+    displayHangmanCharacter();
+  });
+});
 
 // Function to display selected Hangman.
 function displayHangmanCharacter() {
-    if (selectedParts.head) {
-        const hangmanCharacter = `<img src="img/${selectedParts.head}.png" alt="${selectedParts.head}">`
-        document.getElementById('hangman-character').innerHTML = hangmanCharacter
-    }
+  if (selectedParts.head) {
+    const hangmanCharacter = `<img src="img/${selectedParts.head}.png" alt="${selectedParts.head}">`;
+    document.getElementById("hangman-character").innerHTML = hangmanCharacter;
+  }
 }
 
 // Game start function when pressing the "Start Game" button.
-document.getElementById('start-game').addEventListener('click', function() {
-    // Get player name
-    const playerName = document.getElementById('player-name').value.trim()
+document.getElementById("start-game").addEventListener("click", function () {
+  // Get player name
+  const playerName = document.getElementById("player-name").value.trim();
 
-    // Check if the player has entered their name.
-    if (!playerName) {
-        alert("Ange ditt namn!")
-        return
-    }
+  // Check if the player has entered their name.
+  if (!playerName) {
+    alert("Ange ditt namn!");
+    return;
+  }
 
-    // Check if the player has selected Hangman.
-    if (!selectedParts.head) {
-        alert("Välj Hangman!")
-        return
-    }
+  // Check if the player has selected Hangman.
+  if (!selectedParts.head) {
+    alert("Välj Hangman!");
+    return;
+  }
 
-    // If the player enters their name & selects Hangman
-    console.log(`Välkomna, ${playerName}! Startar spel...`)
-    console.log(`Din Hangman: ${selectedParts.head}`)
-})
-
+  // If the player enters their name & selects Hangman
+  console.log(`Välkomna, ${playerName}! Startar spel...`);
+  console.log(`Din Hangman: ${selectedParts.head}`);
+});

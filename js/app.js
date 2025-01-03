@@ -1,4 +1,3 @@
-
 // TODO: hämta spelaIgenBtn med querySelector
 /*
 // "Spela igen" button: resets the game and goes to the start view
@@ -14,8 +13,7 @@ visaPoangBtn.addEventListener("click", () => {
 });
 */
 
-document.getElementById("start-game-btn").addEventListener("click", () => {
-  console.log("Start game clicked!");
-  // Code to switch to game view
-});
-
+//document.getElementById("start-game-btn").addEventListener("click", () => {
+//console.log("Start game clicked!");
+// Code to switch to game view
+//});
