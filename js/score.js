@@ -1,6 +1,3 @@
-// Läs in resultaten från localStorage
-const gameResults = JSON.parse(localStorage.getItem("gameResults")) || [];
-
 // Funktion för att visa resultaten
 function laggTillResultat(result) {
     const resultContainer = document.getElementById('result-lista');
@@ -36,12 +33,26 @@ function laggTillResultat(result) {
     });
 }
 
-document.querySelector('#score-flik').addEventListener('click', function() 
-{
-    hideWiews();
-    document.querySelector('#body-score').classList.remove('hide');
-    laggTillResultat(gameResults);
+// När användaren klickar på fliken "Dina poäng", uppdatera resultaten
+document.querySelector('#score-flik').addEventListener('click', function() {
+    // Hämta de senaste resultaten från localStorage varje gång användaren går till score
+    const updatedGameResults = JSON.parse(localStorage.getItem("gameResults")) || [];
+    
+    // Uppdatera visningen av resultaten
+    laggTillResultat(updatedGameResults);
 });
+
+// När användaren klickar på knapparna för att visa poäng, uppdatera också resultaten
+document.querySelector('#visa-poang-btn').addEventListener('click', function() {
+    const updatedGameResults = JSON.parse(localStorage.getItem("gameResults")) || [];
+    laggTillResultat(updatedGameResults);
+});
+
+document.querySelector('#visa-poang-btn-lose').addEventListener('click', function() {
+    const updatedGameResults = JSON.parse(localStorage.getItem("gameResults")) || [];
+    laggTillResultat(updatedGameResults);
+});
+
 
 
 // Sortering av antal gissningar
