@@ -42,6 +42,7 @@ document.querySelector('#score-flik').addEventListener('click', function() {
     laggTillResultat(updatedGameResults);
 });
 
+
 // När användaren klickar på knapparna för att visa poäng, uppdatera också resultaten
 document.querySelector('#visa-poang-btn').addEventListener('click', function() {
     const updatedGameResults = JSON.parse(localStorage.getItem("gameResults")) || [];
