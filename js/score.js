@@ -57,18 +57,18 @@ document.querySelector('#visa-poang-btn-lose').addEventListener('click', functio
 
 
 // Sortering av antal gissningar
-document.getElementById('sort-button').addEventListener('click', () => 
-{
+document.getElementById('sort-button').addEventListener('click', () => {
+    const gameResults = JSON.parse(localStorage.getItem("gameResults")) || []; // Hämta resultaten
     const sortedResults = gameResults.sort((a, b) => a.incorrectGuesses - b.incorrectGuesses);
     laggTillResultat(sortedResults);
 });
 
-// sortering av datum/tid
-document.getElementById('time-button').addEventListener('click', () => 
-{
+document.getElementById('time-button').addEventListener('click', () => {
+    const gameResults = JSON.parse(localStorage.getItem("gameResults")) || []; // Hämta resultaten
     const sortedResults = gameResults.sort((a, b) => new Date(b.time) - new Date(a.time));
     laggTillResultat(sortedResults);
 });
+
 
 //rensa lista
 /*document.getElementById('rensa-resultat').addEventListener('click', () => {
