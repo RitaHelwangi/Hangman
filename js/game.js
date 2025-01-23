@@ -273,3 +273,5 @@ document.getElementById("start-game").addEventListener("click", function () {
   console.log(`Välkomna, ${playerName}! Startar spel...`);
   console.log(`Din Hangman: ${selectedParts.head}`);
 });
+
+export {initGame}

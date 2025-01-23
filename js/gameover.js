@@ -1,5 +1,6 @@
 
 import { words } from "./svenska-ord.js";
+import { initGame } from "./game.js";
 
 
 //toggle vy
