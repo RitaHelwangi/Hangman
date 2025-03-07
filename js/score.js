@@ -54,6 +54,7 @@ document.querySelector('#visa-poang-btn-lose').addEventListener('click', functio
     laggTillResultat(updatedGameResults);
 });
 
+//vinnar sidan glömt
 document.querySelector('#visa-poang-btn-win').addEventListener('click', function() {
     const updatedGameResults = JSON.parse(localStorage.getItem("gameResults")) || [];
     laggTillResultat(updatedGameResults);
