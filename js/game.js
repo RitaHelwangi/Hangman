@@ -252,8 +252,9 @@ function displayHangmanCharacter() {
   }
 }
 
+// DETTA ÄR GAMLA KODEN
 // Game start function when pressing the "Start Game" button.
-document.getElementById("start-game").addEventListener("click", function () {
+/*document.getElementById("start-game").addEventListener("click", function () {
   // Get player name
   const playerName = document.getElementById("player-name").value.trim();
 
@@ -272,6 +273,25 @@ document.getElementById("start-game").addEventListener("click", function () {
   // If the player enters their name & selects Hangman
   console.log(`Välkomna, ${playerName}! Startar spel...`);
   console.log(`Din Hangman: ${selectedParts.head}`);
+}); */
+
+
+// Game start function when pressing the "Start Game" button.
+document.getElementById("start-game").addEventListener("click", function () {
+  // Get player name
+  const playerName = document.getElementById("player-name").value.trim();
+
+  // Check if the player has entered their name.
+  if (!playerName) {
+    
+    document.getElementById("error-message").textContent = "Ange ditt namn!";
+    document.getElementById("error-message").style.display = "block"; 
+    return;
+  }
+
+  console.log(`Välkomna, ${playerName}! Startar spel...`);
+  console.log(`Din Hangman: ${selectedParts.head || 'Ingen avatar vald'}`);
+
 });
 
 export {initGame}
