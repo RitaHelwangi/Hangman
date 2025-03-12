@@ -39,8 +39,16 @@ function initGame() {
 }
 
 // Get Random Word
+//function getRandomWord() {
+  //return words[Math.floor(Math.random() * words.length)].toUpperCase();
+//}
+
+// Hämta ett slumpmässigt ord från listan o spara det i localstorage
 function getRandomWord() {
-  return words[Math.floor(Math.random() * words.length)].toUpperCase();
+  const word = words[Math.floor(Math.random() * words.length)].toUpperCase();
+  console.log("Ordet som sparas i localStorage:", word); 
+  localStorage.setItem("lastWord", word); 
+  return word;
 }
 
 // Handle Guess
@@ -181,7 +189,7 @@ function saveGameResult(didWin, word) {
     name: playerName,
     avatar: selectedAvatar,
     incorrectGuesses: incorrectGuesses.length,
-    wordLength: word.length,
+    wordLength: word,              /*word.length, ändrat */ 
     time: new Date().toISOString(),
     guessedCorrectly: didWin,
   };
@@ -252,7 +260,7 @@ function displayHangmanCharacter() {
   }
 }
 
-// DETTA ÄR GAMLA KODEN
+// DETTA ÄR GAMLA KODEN, popup
 // Game start function when pressing the "Start Game" button.
 /*document.getElementById("start-game").addEventListener("click", function () {
   // Get player name
