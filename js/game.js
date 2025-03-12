@@ -179,25 +179,30 @@ function showCustomDialog(message) {
   });
 }
 
-// Save Game Result
-function saveGameResult(didWin, word) {
+function saveGameResult(isWin, wordToGuess) {
   const playerName = localStorage.getItem("playerName") || "Spelare";
-  const selectedAvatar =
-    localStorage.getItem("selectedAvatar") || "default-avatar";
+  const selectedAvatar = localStorage.getItem("selectedAvatar") || "default-avatar";
+  const gameResults = JSON.parse(localStorage.getItem("gameResults")) || [];
 
-  const result = {
+  const gameResult = {
     name: playerName,
     avatar: selectedAvatar,
-    incorrectGuesses: incorrectGuesses.length,
-    wordLength: word,              /*word.length, ändrat */ 
+    word: wordToGuess,
+    wordLength: wordToGuess.length,
+    incorrectGuesses: incorrectGuesses.length, // Spara antalet felaktiga gissningar
+    guessedCorrectly: isWin,
     time: new Date().toISOString(),
-    guessedCorrectly: didWin,
   };
 
-  const gameResults = JSON.parse(localStorage.getItem("gameResults")) || [];
-  gameResults.push(result);
+  // Lägg till resultatet
+  gameResults.push(gameResult);
+  
   localStorage.setItem("gameResults", JSON.stringify(gameResults));
+
+  // Spara det senaste ordet i localStorage
+  localStorage.setItem("lastWord", wordToGuess);
 }
+
 
 // input and button
 //document.getElementById('guess-input').disabled = false;
