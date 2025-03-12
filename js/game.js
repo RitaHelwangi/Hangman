@@ -38,6 +38,7 @@ function initGame() {
   //guessButton.disabled = false;
 }
 
+
 // Get Random Word
 //function getRandomWord() {
   //return words[Math.floor(Math.random() * words.length)].toUpperCase();
@@ -189,7 +190,7 @@ function saveGameResult(isWin, wordToGuess) {
     avatar: selectedAvatar,
     word: wordToGuess,
     wordLength: wordToGuess.length,
-    incorrectGuesses: incorrectGuesses.length, // Spara antalet felaktiga gissningar
+    incorrectGuesses: incorrectGuesses.length, // Sparar antalet felaktiga gissningar
     guessedCorrectly: isWin,
     time: new Date().toISOString(),
   };
@@ -197,11 +198,13 @@ function saveGameResult(isWin, wordToGuess) {
   // Lägg till resultatet
   gameResults.push(gameResult);
   
+  // Sparar i localStorage
   localStorage.setItem("gameResults", JSON.stringify(gameResults));
-
-  // Spara det senaste ordet i localStorage
-  localStorage.setItem("lastWord", wordToGuess);
+  localStorage.setItem("lastWord", wordToGuess); //sparar ordet
+  localStorage.setItem("lastIncorrectGuesses", incorrectGuesses.length); // Spara antalet felaktiga gissningar
 }
+
+
 
 
 // input and button
