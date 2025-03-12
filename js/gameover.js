@@ -6,22 +6,20 @@ import { initGame } from "./game.js"; */
 //toggle vy
 
 
-//boolean funcion win/lose
-function showEndScreen(isWinner, word) {
+function showEndScreen(isWinner) {
 	const win = document.querySelector('#win');
 	const lose = document.querySelector('#lose');
+	
+	// Visa vinstskärmen om spelaren har vunnit
 	if (isWinner) {
-		document.querySelector('#win').classList.remove('hidden');
-    	document.querySelector('#lose').classList.add('hidden');
-	} else  {
-		document.querySelector('#lose').classList.remove('hidden');
-    	document.querySelector('#win').classList.add('hidden');
-	} 
-	// Visa det vinnande ordet om det finns
-    if (!isWinner && word) {
-        lose.innerHTML = `<p>Tyvärr, ordet var: ${word}</p>`;
-    }
-}
+	  win.classList.remove('hidden');
+	  lose.classList.add('hidden');
+	} else { // Visa förlustskärmen om spelaren har förlorat
+	  lose.classList.remove('hidden');
+	  win.classList.add('hidden');
+	}
+  }
+  
 	
 	//anropa function
 	showEndScreen(true)
@@ -103,15 +101,16 @@ function showEndScreen(isWinner, word) {
 	 
 	 // Hämta ordet och resultat från localStorage
 	 const lastWord = localStorage.getItem('lastWord');
+	 const lastIncorrectGuesses = localStorage.getItem('lastIncorrectGuesses');
 	 const gameResults = JSON.parse(localStorage.getItem("gameResults")) || [];
 	 const lastGame = gameResults[gameResults.length - 1];
 	 
 	 if (lastGame) {
-	   theWordLose.innerText = `Ordet var: ${lastWord || lastGame.word}`;
-	   theGuessLose.innerText = `Antal felaktiga gissningar: ${lastGame.incorrectGuesses}`;
+	   theWordLose.innerText = `Ordet var: ${lastWord}`;
+	   theGuessLose.innerText = `Antal felaktiga gissningar: ${lastIncorrectGuesses}`;
 	 
-	   theWordWin.innerText = `Ordet var: ${lastWord || lastGame.word}`;
-	   theGuessWin.innerText = `Antal felaktiga gissningar: ${lastGame.incorrectGuesses}`;
+	   theWordWin.innerText = `Ordet var: ${lastWord}`;
+	   theGuessWin.innerText = `Antal felaktiga gissningar: ${lastIncorrectGuesses}`;
 	 
 	   gameUpdateLose.appendChild(theWordLose);
 	   gameUpdateLose.appendChild(theGuessLose);
