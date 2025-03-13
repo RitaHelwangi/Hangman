@@ -94,24 +94,34 @@ function handleGuess() {
   }
 }
 
-//boolean funcion win/lose
+// Funktion för att visa slutskärmen (vinnande eller förlorande)
 function showEndScreen(isWinner) {
-  const win = document.querySelector("#win");
-  const lose = document.querySelector("#lose");
-  //const gameUpdateLose = document.querySelector('#game-update-lose');
-  //const gameUpdateWin = document.querySelector('#game-update-win');
-  if (isWinner) {
-    document.querySelector("#win").classList.remove("hidden");
-    document.querySelector("#lose").classList.add("hidden");
-    //document.querySelector('#game-update-win').classList.remove('hidden');
-    //document.querySelector('#game-update-lose').classList.add('hidden');
-  } else {
-    document.querySelector("#lose").classList.remove("hidden");
-    document.querySelector("#win").classList.add("hidden");
-    //document.querySelector('#game-update-lose').classList.remove('hidden');
-    //document.querySelector('#game-update-win').classList.add('hidden');
+	const win = document.querySelector("#win");
+	const lose = document.querySelector("#lose");
+  
+	// Hämta ordet och antalet felaktiga gissningar från localStorage
+	const wordToGuess = localStorage.getItem("lastWord");
+	const incorrectGuesses = JSON.parse(localStorage.getItem("incorrectGuesses")) || [];
+	const incorrectGuessesCount = incorrectGuesses.length;
+  
+	if (isWinner) {
+	  win.classList.remove("hidden");
+	  lose.classList.add("hidden");
+  
+	  document.querySelector("#game-update-win").innerHTML = `
+		<p class="word-guesses">Ordet är: ${wordToGuess}</p>
+		<p class="number-guess">Antal felaktiga gissningar: ${incorrectGuessesCount}</p>
+	  `;
+	} else {
+	  lose.classList.remove("hidden");
+	  win.classList.add("hidden");
+  
+	  document.querySelector("#game-update-lose").innerHTML = `
+		<p class="word-guesses">Ordet var: ${wordToGuess}</p>
+		<p class="number-guess">Antal felaktiga gissningar: ${incorrectGuessesCount}</p>
+	  `;
+	}
   }
-}
 function hideWiews() {
   const bodyStart = document.querySelector("#body-start");
   const bodyGame = document.querySelector("#body-game");
@@ -137,7 +147,12 @@ function updateWordDisplay() {
 // Update Incorrect Guesses
 function updateIncorrectGuesses() {
   incorrectGuessesDisplay.textContent = incorrectGuesses.join(", ");
+  console.log("antal felaktiga gissningar:", incorrectGuesses);
+
+  // Spara felaktiga gissningar i localStorage
+  localStorage.setItem("incorrectGuesses", JSON.stringify(incorrectGuesses)); // Spara gissningarna som en JSON-sträng
 }
+
 
 // Reveal Hangman Part
 function revealHangmanPart() {
@@ -200,9 +215,8 @@ function saveGameResult(isWin, wordToGuess) {
   
   // Sparar i localStorage
   localStorage.setItem("gameResults", JSON.stringify(gameResults));
-  localStorage.setItem("lastWord", wordToGuess); //sparar ordet
-  localStorage.setItem("lastIncorrectGuesses", incorrectGuesses.length); // Spara antalet felaktiga gissningar
 }
+
 
 
 
