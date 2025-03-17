@@ -1,3 +1,5 @@
+import { initGame } from "./game.js";
+
 // Funktion för att visa slutskärmen (vinnande eller förlorande)
 function showEndScreen(isWinner) {
 	const win = document.querySelector("#win");
